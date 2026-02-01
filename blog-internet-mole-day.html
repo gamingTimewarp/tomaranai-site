@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internet Mole Day is Coming — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">YourName.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== BLOG POST ===== -->
+  <!--
+    Blog posts use the exact same layout as story posts.
+    .story-post, .story-header, .story-body — all reused.
+    Just change the tag, title, back link, and body content.
+    style.css handles all the formatting automatically.
+  -->
+  <article class="story-post">
+    <header class="story-header">
+      <a href="blog.html" class="story-back">← Back to Blog</a>
+      <span class="card-tag card-tag--blog">Satire</span>
+      <h1 class="story-title">Internet Mole Day is Coming</h1>
+      <div class="story-byline">
+        <span class="story-date">January 2026</span>
+      </div>
+    </header>
+
+    <div class="story-body">
+
+      <p>After doing some random napkin maths, I came to a conclusion I found interesting and thought you all would appreciate. Through some intense googling, estimates for the size of all data on the internet range from 100 to 200 zettabytes of data. This would be approximately 1×10²³ to 2×10²³ bits. As you might already be guessing, this is the same order of magnitude as Avogadro's number, which is 6.02214076×10²³.</p>
+
+      <p>Assuming that the current internet as I am writing this consists of exactly 150 zettabytes of data and the internet doubles in size each year, both tenuous assumptions, then the internet will be a mole in 2.003690 years. That's 2 years, 1 day, 8 hours, and 19 minutes.</p>
+
+      <p>Mark your calendars, folks! Given all those assumptions, 16:40 UTC, October 10th, 2027 will be the Internet Mole Moment!</p>
+
+      <p>Feel free to check or correct my maths if necessary. Either way, it should be some time in the next couple of years, but we'll never actually know.</p>
+
+      <p class="story-ending">So happy Internet Mole Day in advance, everyone!</p>
+
+    </div>
+
+    <!-- Feedback CTA -->
+    <div class="story-feedback">
+      <p>Think my math is wrong? Prove it.</p>
+      <a href="contact.html" class="story-feedback-link">Leave feedback →</a>
+    </div>
+
+  </article>
+
+</body>
+</html>
