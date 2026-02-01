@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Postdicament of Doctor Fancyboots — TOMARANAI PROJECT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">TOMARANAI PROJECT</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stories.html" class="active">Stories</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="projects.html">Projects</a></li> 
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== STORY POST ===== -->
+  <!-- 
+    Every story uses this same structure: .story-post wraps everything,
+    .story-header for the title block, and .story-body for the text.
+    All formatting is handled by style.css — just write in <p> tags.
+    Dialogue lines stay in their own <p> tags and CSS will style them automatically.
+  -->
+  <article class="story-post">
+    <header class="story-header">
+      <a href="projects.html" class="story-back">← Back to Projects</a>
+      <span class="card-tag">Mystery</span>
+      <h1 class="story-title">The Five Treasures of Inpei Kaguya</h1>
+      <div class="story-byline">
+        <span class="story-date">November 2022</span>
+      </div>
+    </header>
+
+    <div class="story-body">
+
+      <p class="story-ending">Coming Soon</p>
+
+    </div>
+
+    <!-- Feedback CTA -->
+    <div class="story-feedback">
+      <p>Enjoyed the mystery?</p>
+      <a href="contact.html" class="story-feedback-link">Tell me how it went →</a>
+    </div>
+
+  </article>
+
+</body>
+</html>
