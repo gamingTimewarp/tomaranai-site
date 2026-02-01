@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stories — TOMARANAI PROJECT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">TOMARANAI PROJECT</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stories.html" class="active">Stories</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="page-header-label">Downloadable Projects</div>
+    <h1 class="page-header-title">Projects</h1>
+    <p class="page-header-sub">Other projects that you can download and use locally.</p>
+  </header>
+
+  <!-- ===== PROJECT LIST ===== -->
+  <main class="content">
+    <div class="card-grid card-grid--single">
+
+      <article class="card">
+          <span class="card-tag">Coming Soon</span><span class="card-tag">Visual Novels</span>
+          <h3 class="card-title"><a href="#">Cereal Experience Rain</a></h3>
+          <p class="card-excerpt">Download the free visual novel, combining classic style and modern ideas into an unforgettable breakfast-themed experience.</p>
+          <a href="#" class="card-read">Download here →</a>
+        </article>
+
+        <article class="card">
+          <span class="card-tag">Coming Soon</span><span class="card-tag">Short Stories</span>
+          <h3 class="card-title"><a href="#">The Five Treasures of Inpei Kaguya</a></h3>
+          <p class="card-excerpt">A mystery story from six perspectives, perfect as an interactive experience with your friends.</p>
+          <a href="#" class="card-read">Read story →</a>
+        </article>
+
+      
+      <!-- ADD MORE PROJECTS HERE — just copy the <article> block above and swap in your content -->
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p class="footer-text">© 2026 Basil Monty Productions. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
+    <div class="footer-links">
+      <a href="https://github.com/gamingTimewarp" target="_blank">GitHub</a>
+      <a href="mailto:bumpywright03@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>

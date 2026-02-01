@@ -143,6 +143,7 @@ cat > "${filename}.html" << HTMLEOF
       <li><a href="index.html">Home</a></li>
       <li><a href="stories.html"$([ "$type" == "1" ] && echo ' class="active"')>Stories</a></li>
       <li><a href="blog.html"$([ "$type" == "2" ] && echo ' class="active"')>Blog</a></li>
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
