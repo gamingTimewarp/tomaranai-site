@@ -1,0 +1,43 @@
+﻿PROVING Ω𝄪
+
+
+Ω𝄪, or Ω## is a continual operator which iterates through all possible solutions to problems. There are three downsides to this approach of problem-solving. 1. It operates in O(2^∞) time. 2. It will eventually invent Courier New. 3. It will eventually invent Python. This paper seeks to prove the existence of Ω  . 
+
+
+Assume infinite time.
+Assume infinite and perfect storage of data.
+Assume ZFC.
+
+
+I. Definition of Ω𝄪
+
+
+Ω𝄪 is an operator with 0 inputs and a countably infinite set of outputs. The purpose of Ω𝄪 is to create the transformation that leads from an input to a desired output. Ω𝄪, over a single timestep, performs the iterate operation. This is identical to the familiar successor operation, which starts with ∅, and succeeds it into {∅}, which is then proceeded by {{∅}}, and in general the successor of a set K is the set {K}. It is also the operation usually notated as ++ in computer science. As this function provides all of the natural numbers, any notation for the natural numbers is sufficient for this process. Ω𝄪 is most easily understood using binary notation. It begins with 0, then produces 1, then 01, then 11, then 100, and so forth, over an infinite period of time. 
+
+
+II. Proof of the completeness of Ω𝄪 in a single operation for countably infinite inputs and outputs
+
+
+For any problem with countably infinite inputs, one operation of Ω𝄪 will eventually provide the desired outputs. This is intuitive by the fact that, over enough time, Ω𝄪 will create transformations that for any given definition of transformations mapped to the naturals, provide the desired outputs. 
+
+
+III. Proof of the completeness of Ω𝄪 for uncountably infinite inputs using children
+
+
+For problems with uncountably infinite inputs, one cannot run Ω𝄪 alone, but must run operations defined by the outputs it produces. With any given mapping of the reals to basic logical concepts or definitions of operations, Ω𝄪 will continue to produce near identical but slightly varying copies of itself, which then ran together produce uncountably infinitely many outputs.
+
+
+ It can be illustrated like this. The initial Ω𝄪, Ω𝄪0, iterates through the binary numbers with no binary point, starting at 0. As creating a version of Ω𝄪 with a number of binary places is a problem of countably infinite inputs, Ω𝄪0 will eventually produce Ω𝄪1, which begins at 0.0, and then iterates to 0.1, then 1.0, then 1.1, and so on. Eventually, Ω𝄪0 produces Ω𝄪2, which begins at 0.00, then iterates to 0.01, and so forth. If all of these subcopies of Ω𝄪 are run as soon as they are created by Ω𝄪0, all copies of Ω𝄪 will finish after 2^∞ time steps have passed for Ω𝄪0. At that point, all real numbers will have been iterated through, and as the reals are uncountably infinite, they can be mapped to other uncountable infinities, such as the set of all transformations that solve problems with uncountably many inputs.
+
+
+IV. Conclusion
+Thus, Ω𝄪 exists and is complete for countably infinite inputs, and for uncountably infinite inputs if parallel children are allowed.
+
+
+IMPLEMENTATION OF Ω𝄪
+
+
+An implementation of Ω𝄪 is fairly simple. All you need is infinite time, a register consisting of infinite data, and the Ω𝄪 custom processor, referred to as the Ω𝄪א processor. This manual covers the use of a single Ω𝄪א processor for problems of up to countably infinite inputs, but problems of uncountably many inputs can be solved with only countably infinite Ω𝄪א processors. 
+
+
+Ω𝄪א Assembly has zero-byte opcodes, as Ω𝄪 only makes use of one operation. It also has only one register, which the output is automatically stored to, and so does not need memory addresses. The output register may be tied to a database of desired inputs and outputs to see if at any particular timestep, Ω𝄪 has created the desired transformation mask, but this it outside of the scope of this manual. The Ω𝄪א only has a single input, that being the system clock, and a single output, that being the value stored in its internal RAM on the previous clock cycle. The output is then stored in the register.
