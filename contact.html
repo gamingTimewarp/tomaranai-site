@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">YourName.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="page-header-label">Get in Touch</div>
+    <h1 class="page-header-title">Contact</h1>
+    <p class="page-header-sub">Got feedback on a story or blog post? Just want to say hi? I'm all ears.</p>
+  </header>
+
+  <main class="content">
+
+    <!-- ===== BOOK SECTION ===== -->
+    <section class="section book-section">
+      <div class="section-header">
+        <h2 class="section-title">My Book</h2>
+      </div>
+      <div class="book-card">
+        <div class="book-preview">
+          <!-- 
+            Kindle Instant Preview embed.
+            This uses your book's ASIN (B0DXKGQQSS) to pull in an interactive
+            reader widget directly from Amazon. If it doesn't render for you,
+            see the fallback link below — it will still work.
+          -->
+          <iframe
+            type="text/html"
+            width="100%"
+            height="400"
+            src="https://kindlepreviewer.amazon.com/embed/B0DXKGQQSS"
+            frameborder="0"
+            scrolling="no"
+            style="max-width: 100%; border-radius: 8px;"
+          ></iframe>
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">She Watched the Roses Burn</h3>
+          <p class="book-desc">Available now on Kindle. Start reading a free sample above, or grab your copy on Amazon.</p>
+          <a href="https://www.amazon.com/dp/B0DXKGQQSS" target="_blank" class="book-buy-btn">Buy on Amazon →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEEDBACK FORM ===== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Leave Feedback</h2>
+      </div>
+      <!--
+        This form uses Formspree to handle submissions for free.
+        To set it up:
+          1. Go to https://formspree.io and create a free account.
+          2. Create a new form — it will give you a unique URL.
+          3. Replace the action="https://formspree.io/YOUR_ID" below with your URL.
+        That's it — no backend or server needed.
+      -->
+      <form class="feedback-form" action="https://formspree.io/f/xwvqkdng" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="What should I call you?" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="form-optional">(optional)</span></label>
+          <input type="email" id="email" name="email" placeholder="In case I want to write back" />
+        </div>
+        <div class="form-group">
+          <label for="subject">About</label>
+          <select id="subject" name="subject">
+            <option value="" disabled selected>What's this regarding?</option>
+            <option value="story">A Story</option>
+            <option value="blog">A Blog Post</option>
+            <option value="book">The Book</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Say what's on your mind..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send it →</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p class="footer-text">© 2026 YourName. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
+    <div class="footer-links">
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="mailto:your-email@example.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
