@@ -23,7 +23,7 @@
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="stories.html">Stories</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="projects.html">Projects</a></li> 
+      
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -212,8 +212,7 @@
 
       btn.textContent = isExpanded ? 'Show more' : 'Show less';
     }
-
-    // --- SEARCH: filter cards, temporarily overriding collapse ---
+// --- SEARCH: filter cards, temporarily overriding collapse ---
     function filterCards() {
       const query = document.getElementById('search-input').value.toLowerCase().trim();
       const resultsLabel = document.getElementById('search-results');
@@ -227,7 +226,8 @@
         cards.forEach((card, i) => {
           const title = card.querySelector('.card-title').textContent.toLowerCase();
           const excerpt = card.querySelector('.card-excerpt').textContent.toLowerCase();
-          const combined = title + ' ' + excerpt;
+          const tag = card.querySelector('.card-tag').textContent.toLowerCase();
+          const combined = title + ' ' + excerpt + ' ' + tag;
           const isMatch = query === '' || combined.includes(query);
 
           if (isMatch) {
