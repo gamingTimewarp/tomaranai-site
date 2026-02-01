@@ -674,3 +674,104 @@ a {
     gap: 4px;
   }
 }
+
+/* ===== HAMBURGER (hidden on desktop) ===== */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 101;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animate into an X when open */
+.nav-links.nav-open ~ .nav-hamburger span:nth-child(1),
+.nav-hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-links.nav-open ~ .nav-hamburger span:nth-child(2),
+.nav-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-links.nav-open ~ .nav-hamburger span:nth-child(3),
+.nav-hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .nav {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+  .nav-links {
+    /* Hidden by default on mobile */
+    display: none;
+    /* When open, become a full-width vertical dropdown */
+    width: 100%;
+    order: 3;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-links.nav-open {
+    display: flex;
+  }
+  .nav-links li {
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+    font-size: 0.78rem;
+    border-bottom: none;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    border-bottom: none;
+    color: var(--accent);
+  }
+  .hero {
+    padding: 60px 20px 40px;
+  }
+  .content {
+    padding: 0 20px 60px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 24px 20px;
+  }
+  .page-header {
+    padding: 50px 20px 30px;
+  }
+  .story-post {
+    padding: 40px 20px 60px;
+  }
+  .story-byline {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

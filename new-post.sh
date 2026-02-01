@@ -133,7 +133,12 @@ cat > "${filename}.html" << HTMLEOF
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav">
-    <a href="index.html" class="nav-logo">YourName.</a>
+    <a href="index.html" class="nav-logo">TOMARANAI PROJECT</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="stories.html"$([ "$type" == "1" ] && echo ' class="active"')>Stories</a></li>
