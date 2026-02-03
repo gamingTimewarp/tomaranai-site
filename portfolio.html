@@ -40,59 +40,93 @@
 
   <main class="content">
 
-    <!-- ===== BOOK SECTION ===== -->
-    <section class="section book-section">
-      <div class="section-header">
-        <h2 class="section-title">My Book</h2>
-      </div>
-      <div class="book-card">
-        <div class="book-info">
-          <h3 class="book-title">She Watched the Roses Burn</h3>
-          <p class="book-desc">My largest project to date: A 30 chapter, published mystery novel.</p>
-          <a href="https://www.amazon.com/dp/B0DXKGQQSS" target="_blank" class="book-buy-btn">Amazon listing →</a>
-        </div>
-      </div>
-    </section>
+    <div class="tab-bar">
+      <button class="tab-btn tab-btn--active" onclick="switchTab('about-me', this)">About Me</button>
+      <button class="tab-btn" onclick="switchTab('about-project', this)">About Tomaranai Project</button>
+    </div>
 
-    <!-- ===== FEEDBACK FORM ===== -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Request a Quote</h2>
-      </div>
-      <!--
-        This form uses Formspree to handle submissions for free.
-        To set it up:
-          1. Go to https://formspree.io and create a free account.
-          2. Create a new form — it will give you a unique URL.
-          3. Replace the action="https://formspree.io/YOUR_ID" below with your URL.
-        That's it — no backend or server needed.
-      -->
-      <form class="feedback-form" action="https://formspree.io/f/xwvqkdng" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="What should I call you?" />
+    <div id="about-me" class="tab-panel tab-panel--active">
+
+      <!-- ===== BOOK SECTION ===== -->
+      <section class="section book-section">
+        <div class="section-header">
+          <h2 class="section-title">My Book</h2>
         </div>
-        <div class="form-group">
-          <label for="email">Email <span class="form-optional">(optional)</span></label>
-          <input type="email" id="email" name="email" placeholder="Let's get in touch" />
+        <div class="book-card">
+          <div class="book-info">
+            <h3 class="book-title">She Watched the Roses Burn</h3>
+            <p class="book-desc">My largest project to date: A 30 chapter, published mystery novel.</p>
+            <a href="https://www.amazon.com/dp/B0DXKGQQSS" target="_blank" class="book-buy-btn">Amazon listing →</a>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="subject">About</label>
-          <select id="subject" name="subject">
-            <option value="" disabled selected>What's this regarding?</option>
-            <option value="story">A Commission</option>
-            <option value="blog">A Quote Request</option>
-            <option value="book">Just Discussion</option>
-            <option value="other">Something Else</option>
-          </select>
+      </section>
+
+      <!-- ===== FEEDBACK FORM ===== -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Request a Quote</h2>
         </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="What can I do for you?" required></textarea>
+        <!--
+          This form uses Formspree to handle submissions for free.
+          To set it up:
+            1. Go to https://formspree.io and create a free account.
+            2. Create a new form — it will give you a unique URL.
+            3. Replace the action="https://formspree.io/YOUR_ID" below with your URL.
+          That's it — no backend or server needed.
+        -->
+        <form class="feedback-form" action="https://formspree.io/f/xwvqkdng" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="What should I call you?" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="form-optional">(optional)</span></label>
+            <input type="email" id="email" name="email" placeholder="Let's get in touch" />
+          </div>
+          <div class="form-group">
+            <label for="subject">About</label>
+            <select id="subject" name="subject">
+              <option value="" disabled selected>What's this regarding?</option>
+              <option value="story">A Commission</option>
+              <option value="blog">A Quote Request</option>
+              <option value="book">Just Discussion</option>
+              <option value="other">Something Else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What can I do for you?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send it →</button>
+        </form>
+      </section>
+
+    </div>
+
+    <div id="about-project" class="tab-panel">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">The <ruby>止まらない<rt>TOMARANAI</rt></ruby>Project</h2>
         </div>
-        <button type="submit" class="form-submit">Send it →</button>
-      </form>
-    </section>
+        <div class="about-block">
+          <p>The <ruby>止まらない<rt>TOMARANAI</rt>
+        </ruby> Project is a collection of sci-fi, science fantasy, mystery, and philosophical short stories and visual novels by @gamingTimewarp.</p>
+          <p>The name means "unstoppable" — a nod to the relentless heroes at the heart of these stories, ancient, modern, and future; as well as my personal philosophy of bringing these stories to life, no matter what obstacles stand in the way.</p>
+          <p>"Project" comes from media like Touhou Project and Kagerou Project: works of fiction that consist of a bunch of interconnected parts, and encourage community contribution.</p>
+          <p>The blog-like format of the stories on this site is inspired by the tradition of publishing mystery and sci-fi works in pulp magazines, a chapter at a time. Classics such as Dune and the Adventures of Sherlock Holmes were originally published this way.  </p>
+          <p>Nowadays, this has been replaced by the internet. Instead of subscriping to periodicals, people can access fiction according to their preferences whenever they want.</p>
+          <p> The method of building a universe by slowingi introducing parts of a story and earnestly considering user feedback, however, remains prolific. This site aims to be a forum of a similar purpose, with unique and intriguing fiction shaped by the experiences of myself and feedback from the community.</p>
+          <h3>What You'll Find Here</h3>
+          <ul>
+            <li><strong>Short stories</strong> — standalone tales and serialised adventures, from the comedic escapades of Doctor Fancyboots to quieter philosophical pieces.</li>
+            <li><strong>Visual novels</strong> — interactive fiction experiences like <em>Cereal Experience Rain</em> (coming soon).</li>
+            <li><strong>Collaborative projects</strong> — multi-perspective mysteries like <em>The Five Treasures of Inpei Kaguya</em>, designed to be experienced with friends.</li>
+          </ul>
+          <h3>The Philosophy</h3>
+          <p>Come for silly sci-fi and science fantasy stories about silly characters, stay for deep explorations into the human condition. Every story is free to read on this site.</p>
+        </div>
+      </section>
+    </div>
 
   </main>
 
@@ -120,6 +154,18 @@
     </div>
   </footer>
 
+  <script>
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-panel').forEach(function(p) {
+        p.classList.remove('tab-panel--active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('tab-btn--active');
+      });
+      document.getElementById(tabId).classList.add('tab-panel--active');
+      btn.classList.add('tab-btn--active');
+    }
+  </script>
   <script src="includes.js"></script>
 </body>
 </html>
