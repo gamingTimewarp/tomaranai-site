@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact — TOMARANAI PROJECT</title>
+  <title>Portfolio — TOMARANAI PROJECT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -26,15 +26,16 @@
       <li><a href="stories.html">Stories</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="projects.html">Projects</a></li> 
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html"  class="active">Hire Me</a></li>
     </ul>
   </nav>
 
   <!-- ===== PAGE HEADER ===== -->
   <header class="page-header">
-    <div class="page-header-label">Get in Touch</div>
-    <h1 class="page-header-title">Contact</h1>
-    <p class="page-header-sub">Got feedback on a story or blog post? Just want to say hi? I'm all ears.</p>
+    <div class="page-header-label">Need some writing?</div>
+    <h1 class="page-header-title">Portfolio</h1>
+    <p class="page-header-sub">Have a project you'd like me to do for you? Let's discuss reqs and a quote.</p>
   </header>
 
   <main class="content">
@@ -47,8 +48,8 @@
       <div class="book-card">
         <div class="book-info">
           <h3 class="book-title">She Watched the Roses Burn</h3>
-          <p class="book-desc">A silly mystery story. Available now in paperback or on Kindle.</p>
-          <a href="https://www.amazon.com/dp/B0DXKGQQSS" target="_blank" class="book-buy-btn">Buy on Amazon →</a>
+          <p class="book-desc">My largest project to date: A 30 chapter, published mystery novel.</p>
+          <a href="https://www.amazon.com/dp/B0DXKGQQSS" target="_blank" class="book-buy-btn">Amazon listing →</a>
         </div>
       </div>
     </section>
@@ -56,7 +57,7 @@
     <!-- ===== FEEDBACK FORM ===== -->
     <section class="section">
       <div class="section-header">
-        <h2 class="section-title">Leave Feedback</h2>
+        <h2 class="section-title">Request a Quote</h2>
       </div>
       <!--
         This form uses Formspree to handle submissions for free.
@@ -73,21 +74,21 @@
         </div>
         <div class="form-group">
           <label for="email">Email <span class="form-optional">(optional)</span></label>
-          <input type="email" id="email" name="email" placeholder="In case I want to write back" />
+          <input type="email" id="email" name="email" placeholder="Let's get in touch" />
         </div>
         <div class="form-group">
           <label for="subject">About</label>
           <select id="subject" name="subject">
             <option value="" disabled selected>What's this regarding?</option>
-            <option value="story">A Story</option>
-            <option value="blog">A Blog Post</option>
-            <option value="book">The Book</option>
+            <option value="story">A Commission</option>
+            <option value="blog">A Quote Request</option>
+            <option value="book">Just Discussion</option>
             <option value="other">Something Else</option>
           </select>
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Say what's on your mind..." required></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="What can I do for you?" required></textarea>
         </div>
         <button type="submit" class="form-submit">Send it →</button>
       </form>
