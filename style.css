@@ -510,6 +510,20 @@ rt {
   color: var(--accent);
 }
 
+.large-link-story {
+  display: inline-block;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  transition: color 0.2s;
+}
+
+.large-link-story:hover {
+  color: var(--accent);
+}
+
 /* ===== STORY HEADER ===== */
 .story-header {
   margin-bottom: 48px;
