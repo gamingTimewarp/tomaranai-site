@@ -149,6 +149,17 @@ a {
   width: 100%;
 }
 
+/* ==== RUBY TEXT ==== */
+
+ruby {
+  ruby-position: over; /* or under */
+  line-height: 1;       /* reduce extra vertical space */
+}
+
+rt {
+    font-size: 1rem; /* Set annotation font size */
+}
+
 /* ===== SECTIONS ===== */
 .section {
   margin-bottom: 60px;
@@ -1127,3 +1138,5 @@ a {
     gap: 10px;
   }
 }
+
+
