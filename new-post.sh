@@ -121,6 +121,7 @@ cat > "${filename}.html" << HTMLEOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${title} — TOMARANAI PROJECT</title>
@@ -173,6 +174,31 @@ ${body}
 
   </article>
 
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-newsletter">
+      <span class="footer-newsletter-label">Subscribe to updates</span>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/gamingTimewarp"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/gamingTimewarp', 'popupwindow')"
+        class="newsletter-form"
+      >
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">© 2026 @gamingTimewarp. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
+      <div class="footer-links">
+        <a href="https://github.com/gamingTimewarp" target="_blank">GitHub</a>
+        <a href="mailto:gamingTimewarp@tomaranai.pro">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="includes.js"></script>
 </body>
 </html>
 HTMLEOF

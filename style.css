@@ -1217,3 +1217,30 @@ rt {
 .about-block li {
   margin-bottom: 8px;
 }
+
+/* ===== 404 ERROR PAGE ===== */
+.error-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.error-btn {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.error-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}

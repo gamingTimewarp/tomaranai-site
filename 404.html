@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Postdicament of Doctor Fancyboots — TOMARANAI PROJECT</title>
+  <title>404 — Page Not Found</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -24,43 +23,31 @@
     </button>
     <ul class="nav-links">
       <li><a href="ject.html">Home</a></li>
-      <li><a href="stories.html" class="active">Stories</a></li>
+      <li><a href="stories.html">Stories</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="projects.html">Projects</a></li> 
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="portfolio.html">Hire Me</a></li>
     </ul>
   </nav>
 
-  <!-- ===== STORY POST ===== -->
-  <!-- 
-    Every story uses this same structure: .story-post wraps everything,
-    .story-header for the title block, and .story-body for the text.
-    All formatting is handled by style.css — just write in <p> tags.
-    Dialogue lines stay in their own <p> tags and CSS will style them automatically.
-  -->
-  <article class="story-post">
-    <header class="story-header">
-      <a href="projects.html" class="story-back">← Back to Projects</a>
-      <span class="card-tag">Visual Novels</span>
-      <h1 class="story-title">Cereal Experience Rain</h1>
-      <div class="story-byline">
-        <span class="story-date">Coming Soon</span>
+  <!-- ===== 404 CONTENT ===== -->
+  <header class="hero">
+    <div class="hero-label">Error 404</div>
+    <h1 class="hero-title">Page <span class="hero-accent">Not Found</span></h1>
+    <p class="hero-sub">The page you're looking for doesn't exist or has been moved.</p>
+  </header>
+
+  <main class="content">
+    <section class="section">
+      <div class="error-actions">
+        <a href="ject.html" class="error-btn">Go Home</a>
+        <a href="stories.html" class="error-btn">Browse Stories</a>
+        <a href="blog.html" class="error-btn">Read the Blog</a>
+        <a href="contact.html" class="error-btn">Contact Me</a>
       </div>
-    </header>
-
-    <div class="story-body">
-
-      <p class="story-ending">Coming Soon</p>
-
-    </div>
-
-    <!-- Feedback CTA -->
-    <div class="story-feedback">
-      <p>What's your favourite cereal?</p>
-      <a href="contact.html" class="story-feedback-link">Let me know →</a>
-    </div>
-
-  </article>
+    </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
@@ -86,6 +73,29 @@
     </div>
   </footer>
 
+  <script>
+    // GitHub Pages redirect: try adding .html to extensionless URLs
+    (function() {
+      var path = window.location.pathname;
+
+      // Only redirect if path doesn't already end in .html and isn't a directory
+      if (!path.endsWith('.html') && !path.endsWith('/')) {
+        var htmlPath = path + '.html';
+
+        // Try to fetch the .html version
+        fetch(htmlPath, { method: 'HEAD' })
+          .then(function(response) {
+            if (response.ok) {
+              // Page exists, redirect to it
+              window.location.replace(htmlPath);
+            }
+          })
+          .catch(function() {
+            // Fetch failed, stay on 404
+          });
+      }
+    })();
+  </script>
   <script src="includes.js"></script>
 </body>
 </html>
