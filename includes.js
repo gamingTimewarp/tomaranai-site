@@ -25,9 +25,17 @@
     return null;
   }
 
+  // Determine base path based on current location
+  function getBasePath() {
+    var path = window.location.pathname;
+    var depth = path.split('/').filter(function(s) { return s; }).length - 1;
+    return depth > 0 ? '../' : '';
+  }
+
   // Load and replace header
   function loadHeader() {
-    return fetch('partials/header.html')
+    var basePath = getBasePath();
+    return fetch(basePath + 'partials/header.html')
       .then(function(response) {
         if (!response.ok) throw new Error('Failed to load header');
         return response.text();
@@ -39,12 +47,23 @@
           temp.innerHTML = html.trim();
           var newNav = temp.firstChild;
 
+          // Fix relative paths for subdirectories
+          var basePath = getBasePath();
+          var allLinks = newNav.querySelectorAll('a[href]');
+          allLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('#')) {
+              link.setAttribute('href', basePath + href);
+            }
+          });
+
           // Set active link
           var activeHref = getActiveLink();
           if (activeHref) {
             var links = newNav.querySelectorAll('.nav-links a');
             links.forEach(function(link) {
-              if (link.getAttribute('href') === activeHref) {
+              var href = link.getAttribute('href');
+              if (href === activeHref || href === basePath + activeHref) {
                 link.classList.add('active');
               }
             });
@@ -57,7 +76,8 @@
 
   // Load and replace footer
   function loadFooter() {
-    return fetch('partials/footer.html')
+    var basePath = getBasePath();
+    return fetch(basePath + 'partials/footer.html')
       .then(function(response) {
         if (!response.ok) throw new Error('Failed to load footer');
         return response.text();
@@ -68,6 +88,17 @@
           var temp = document.createElement('div');
           temp.innerHTML = html.trim();
           var newFooter = temp.firstChild;
+
+          // Fix relative paths for subdirectories
+          var basePath = getBasePath();
+          var allLinks = newFooter.querySelectorAll('a[href]');
+          allLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('mailto:') && !href.startsWith('#')) {
+              link.setAttribute('href', basePath + href);
+            }
+          });
+
           existingFooter.parentNode.replaceChild(newFooter, existingFooter);
         }
       });

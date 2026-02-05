@@ -1,0 +1,139 @@
+{
+  "stories": [
+    {
+      "path": "stories/story-spaghetti-eastern.html",
+      "title": "Spaghetti Eastern",
+      "date": "May 2025",
+      "tags": [
+        "Sci-Fi"
+      ],
+      "excerpt": "My name is Doctor Fancyboots. If you've heard of me, you probably know me as a field agent for the Bureau of Narrative Compliance in the capital city of Chin'llyein. However, as a wizard, I am occasio...",
+      "readText": "Read story →"
+    },
+    {
+      "path": "stories/story-postdicament.html",
+      "title": "The Predicament, Dicament, and Postdicament of Doctor Fancyboots",
+      "date": "March 2024",
+      "tags": [
+        "Sci-Fi"
+      ],
+      "excerpt": "Dr. Fancyboots had quite many problems. This was not his first predicament, nor his last. This streak of problems began when he was born-- Dr. Fancyboots, like most people, was of course born his whol...",
+      "readText": "Read story →"
+    },
+    {
+      "path": "stories/story-pond-trip.html",
+      "title": "A Field Trip to a Pond",
+      "date": "February 2023",
+      "tags": [
+        "Sci-Fantasy"
+      ],
+      "excerpt": "Had a crazy magical field trip of your own? I'd love to hear.",
+      "readText": "Read story →"
+    },
+    {
+      "path": "stories/story-end.html",
+      "title": "end.",
+      "date": "November 2018",
+      "tags": [
+        "Philosophy"
+      ],
+      "excerpt": "“Kid, you’ve got the power to end the world. Use it the best that you can. For all of us.”",
+      "readText": "Read story →"
+    },
+    {
+      "path": "stories/story-cucumber-haiku.html",
+      "title": "One Hundred Haiku on Cucumber Water",
+      "date": "January 2023",
+      "tags": [
+        "Sci-Fi"
+      ],
+      "excerpt": "I. Cucumber Water, The absence of a fleeting thought. Tastes of what once was.",
+      "readText": "Read story →"
+    },
+    {
+      "path": "stories/story-antedicament.html",
+      "title": "The Antedicament of Doctor Fancyboots",
+      "date": "April 2024",
+      "tags": [
+        "Sci-Fi"
+      ],
+      "excerpt": "My name is Sy DuCharacter. This story begins as I arrived to work at the famous gyro shop, Forgotten Gyros… It was the day that the Inspector of Cleanliness, referred to in the biz as the I.C., was go...",
+      "readText": "Read story →"
+    }
+  ],
+  "blog": [
+    {
+      "path": "blog/whois-fancyboots.html",
+      "title": "Who is Doctor Fancyboots?",
+      "date": "January 2026",
+      "tags": [
+        "History and Trivia"
+      ],
+      "excerpt": "If you've been messing around on this website, you've probably wondered at some point who this Doctor Fancyboots guy who keeps showing up is. Here's the rundown.'",
+      "readText": "Read post →"
+    },
+    {
+      "path": "blog/blog-omega-doublesharp.html",
+      "title": "Ω𝄪",
+      "date": "November 2021",
+      "tags": [
+        "Satire"
+      ],
+      "excerpt": "Ω𝄪א Assembly has zero-byte opcodes, as Ω𝄪 only makes use of one operation. It also has only one register, which the output is automatically stored to, and so does not need memory addresses. The output...",
+      "readText": "Read post →"
+    },
+    {
+      "path": "blog/blog-internet-mole-day.html",
+      "title": "Internet Mole Day is Coming",
+      "date": "October 2025",
+      "tags": [
+        "Fun Facts"
+      ],
+      "excerpt": "After doing some random napkin maths, I came to a conclusion I found interesting and thought you all would appreciate. Through some intense googling, estimates for the size of all data on the internet...",
+      "readText": "Read post →"
+    },
+    {
+      "path": "blog/blog-digital-miracles.html",
+      "title": "Digital Miracles",
+      "date": "February 2024",
+      "tags": [
+        "Satire"
+      ],
+      "excerpt": "In conclusion, miracles are deceptively simple to perform, especially in a world of your creation. What you use this information for I am in no way responsible for. I also must forewarn you that your ...",
+      "readText": "Read post →"
+    },
+    {
+      "path": "blog/blog-AI-BadApple.html",
+      "title": "A Tale of AI and Apples",
+      "date": "February 2026",
+      "tags": [
+        "Technology",
+        "Touhou"
+      ],
+      "excerpt": "In other words, it was a project exactly like any other AI assisted project: one where scripts could be generated and iterated in mere seconds, but one where bugs that humans never would have written ...",
+      "readText": "Read post →"
+    }
+  ],
+  "projects": [
+    {
+      "path": "projects/project-inpeikaguya-landing.html",
+      "title": "The Five Treasures of Inpei Kaguya",
+      "date": "November 2022",
+      "tags": [
+        "Mystery"
+      ],
+      "excerpt": "Click to read more.",
+      "readText": "Read story →"
+    },
+    {
+      "path": "projects/project-CER-landing.html",
+      "title": "Cereal Experience Rain",
+      "date": "Coming Soon",
+      "tags": [
+        "Visual Novels"
+      ],
+      "excerpt": "Click to read more.",
+      "readText": "Read story →"
+    }
+  ]
+}

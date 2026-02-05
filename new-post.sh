@@ -12,9 +12,10 @@ echo ""
 echo "What type of post is this?"
 echo "  1) Story"
 echo "  2) Blog Post"
-read -p "  Enter 1 or 2: " type
+echo "  3) Project"
+read -p "  Enter 1, 2, or 3: " type
 
-if [ "$type" != "1" ] && [ "$type" != "2" ]; then
+if [ "$type" != "1" ] && [ "$type" != "2" ] && [ "$type" != "3" ]; then
     echo "Invalid choice. Exiting."
     exit 1
 fi
@@ -33,16 +34,38 @@ read -p "  Output filename (no .html, e.g. story-my-story): " filename
 
 if [ "$type" == "1" ]; then
     read -p "  Series name (or leave blank): " series
-    tag="Sci-Fi"
+    read -p "  Tags (comma-separated, or leave blank for no tags): " tags_input
     tag_class="card-tag"
-    back_page="stories.html"
+    back_page="../stories.html"
     back_label="← Back to Stories"
-else
-    tag="Satire"
+    output_dir="stories"
+elif [ "$type" == "2" ]; then
+    read -p "  Tags (comma-separated, or leave blank for no tags): " tags_input
     tag_class="card-tag card-tag--blog"
-    back_page="blog.html"
+    back_page="../blog.html"
     back_label="← Back to Blog"
     series=""
+    output_dir="blog"
+else
+    read -p "  Tags (comma-separated, or leave blank for no tags): " tags_input
+    tag_class="card-tag"
+    back_page="../projects.html"
+    back_label="← Back to Projects"
+    series=""
+    output_dir="projects"
+fi
+
+# Convert comma-separated tags to HTML spans
+tags_html=""
+if [ -n "$tags_input" ]; then
+    IFS=',' read -ra TAG_ARRAY <<< "$tags_input"
+    for tag in "${TAG_ARRAY[@]}"; do
+        # Trim whitespace
+        tag=$(echo "$tag" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+        if [ -n "$tag" ]; then
+            tags_html+="<span class=\"${tag_class}\">$tag</span>"
+        fi
+    done
 fi
 
 read -p "  Date (e.g. January 2026): " date
@@ -117,36 +140,30 @@ done < "$txtfile"
 process_paragraph "$current_para"
 
 # --- Write the HTML file ---
-cat > "${filename}.html" << HTMLEOF
+cat > "${output_dir}/${filename}.html" << HTMLEOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="redirect.js"></script>
+  <script src="../redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${title} — TOMARANAI PROJECT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
+  <!-- ===== NAVIGATION (Loaded by includes.js) ===== -->
   <nav class="nav">
-    <ruby>止まらない<rt>TOMARANAI</rt>
-        </ruby> PROJECT</a>
-    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <a href="../ject.html" class="nav-logo"><ruby>止まらない<rt>TOMARANAI</rt></ruby> PROJECT</a>
     <ul class="nav-links">
-      <li><a href="ject.html">Home</a></li>
-      <li><a href="stories.html"$([ "$type" == "1" ] && echo ' class="active"')>Stories</a></li>
-      <li><a href="blog.html"$([ "$type" == "2" ] && echo ' class="active"')>Blog</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../ject.html">Home</a></li>
+      <li><a href="../stories.html">Stories</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../contact.html">Contact</a></li>
     </ul>
   </nav>
 
@@ -154,7 +171,7 @@ cat > "${filename}.html" << HTMLEOF
   <article class="story-post">
     <header class="story-header">
       <a href="${back_page}" class="story-back">${back_label}</a>
-      <span class="${tag_class}">${tag}</span>
+      ${tags_html}
       <h1 class="story-title">${title}</h1>
       <div class="story-byline">
         ${byline}
@@ -169,45 +186,40 @@ ${body}
     <!-- Feedback CTA -->
     <div class="story-feedback">
       <p>Enjoyed this one? Hated it? Let me know.</p>
-      <a href="contact.html" class="story-feedback-link">Leave feedback →</a>
+      <a href="../contact.html" class="story-feedback-link">Leave feedback →</a>
     </div>
 
   </article>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER (Loaded by includes.js) ===== -->
   <footer class="footer">
-    <div class="footer-newsletter">
-      <span class="footer-newsletter-label">Subscribe to updates</span>
-      <form
-        action="https://buttondown.com/api/emails/embed-subscribe/gamingTimewarp"
-        method="post"
-        target="popupwindow"
-        onsubmit="window.open('https://buttondown.com/gamingTimewarp', 'popupwindow')"
-        class="newsletter-form"
-      >
-        <input type="email" name="email" placeholder="your@email.com" required />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
     <div class="footer-bottom">
-      <p class="footer-text">© 2026 @gamingTimewarp. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
-      <div class="footer-links">
-        <a href="https://github.com/gamingTimewarp" target="_blank">GitHub</a>
-        <a href="mailto:gamingTimewarp@tomaranai.pro">Email</a>
-      </div>
+      <p class="footer-text">© 2026 @gamingTimewarp</p>
     </div>
   </footer>
 
-  <script src="includes.js"></script>
+  <script src="../includes.js"></script>
 </body>
 </html>
 HTMLEOF
 
 echo ""
 echo "-------------------------------------------"
-echo "  Done! Created: ${filename}.html"
+echo "  Done! Created: ${output_dir}/${filename}.html"
 echo "-------------------------------------------"
 echo ""
-echo "  Don't forget to add a card for this post"
-echo "  on stories.html or blog.html!"
+echo "  Regenerating content pages..."
+echo "-------------------------------------------"
+
+# Run the page generation script
+if [ -f "generate-pages.sh" ]; then
+    bash generate-pages.sh
+else
+    echo "  Warning: generate-pages.sh not found."
+    echo "  You may need to manually update the list pages."
+fi
+
+echo ""
+echo "-------------------------------------------"
+echo "  All done! Your post and pages are ready."
 echo "-------------------------------------------"
