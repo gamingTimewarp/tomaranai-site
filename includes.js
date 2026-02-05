@@ -4,10 +4,10 @@
   // Determine which nav link should be active based on current URL
   function getActiveLink() {
     var path = window.location.pathname.toLowerCase();
-    var filename = path.split('/').pop() || 'index.html';
+    var filename = path.split('/').pop() || 'ject.html';
 
-    if (filename === '' || filename === 'index.html') {
-      return 'index.html';
+    if (filename === '' || filename === 'ject.html') {
+      return 'ject.html';
     }
     if (filename.includes('stories') || filename.includes('story-')) {
       return 'stories.html';

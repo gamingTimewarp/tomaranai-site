@@ -48,11 +48,11 @@ cd my-site
 
 ## Step 4 — Add Your Files
 
-Copy `index.html` and `style.css` into the `my-site` folder. Your folder should look like this:
+Copy `ject.html` and `style.css` into the `my-site` folder. Your folder should look like this:
 
 ```
 my-site/
-  ├── index.html
+  ├── ject.html
   ├── style.css
   └── README.md       ← this was auto-created by GitHub
 ```
@@ -96,8 +96,8 @@ It can take 1–2 minutes the first time to go live.
 Open that URL in your browser. You should see your homepage!
 
 If it's not showing up after a few minutes, double-check:
-- That `index.html` is in the **root** of the repo (not inside a subfolder).
-- That the file is actually named `index.html` (not `Index.HTML` or anything else — casing matters).
+- That `ject.html` is in the **root** of the repo (not inside a subfolder).
+- That the file is actually named `ject.html` (not `ject.html` or anything else — casing matters).
 
 ---
 

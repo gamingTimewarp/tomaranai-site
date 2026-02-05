@@ -133,14 +133,15 @@ cat > "${filename}.html" << HTMLEOF
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav">
-    <a href="index.html" class="nav-logo">TOMARANAI PROJECT</a>
+    <ruby>止まらない<rt>TOMARANAI</rt>
+        </ruby> PROJECT</a>
     <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="ject.html">Home</a></li>
       <li><a href="stories.html"$([ "$type" == "1" ] && echo ' class="active"')>Stories</a></li>
       <li><a href="blog.html"$([ "$type" == "2" ] && echo ' class="active"')>Blog</a></li>
       <li><a href="projects.html">Projects</a></li>

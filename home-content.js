@@ -3,8 +3,8 @@
 
   // Only run on index/home page
   var path = window.location.pathname.toLowerCase();
-  var filename = path.split('/').pop() || 'index.html';
-  if (filename !== '' && filename !== 'index.html') {
+  var filename = path.split('/').pop() || 'ject.html';
+  if (filename !== '' && filename !== 'ject.html') {
     return;
   }
 
