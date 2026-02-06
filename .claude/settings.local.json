@@ -5,7 +5,14 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push)",
-      "Bash(git status:*)"
+      "Bash(git status:*)",
+      "Bash(xmllint:*)",
+      "Bash(bash:*)",
+      "Bash(if [ -f \"feed.rss\" ])",
+      "Bash(then echo \"RSS file still exists \\(as expected from previous run\\)\")",
+      "Bash(else echo \"RSS file not generated\")",
+      "Bash(fi)",
+      "Bash(ls:*)"
     ]
   }
 }

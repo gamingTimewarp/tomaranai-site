@@ -24,6 +24,8 @@ add_to_manifest() {
     local tags="$5"
     local excerpt="$6"
     local read_text="$7"
+    local word_count="$8"
+    local reading_time="$9"
 
     # Convert tabs in tags to array format
     local tags_json="["
@@ -47,7 +49,7 @@ add_to_manifest() {
     excerpt=$(echo "$excerpt" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
 
     # Create JSON object
-    local json_obj="{\"path\":\"$filepath\",\"title\":\"$title\",\"date\":\"$date\",\"tags\":$tags_json,\"excerpt\":\"$excerpt\",\"readText\":\"$read_text\"}"
+    local json_obj="{\"path\":\"$filepath\",\"title\":\"$title\",\"date\":\"$date\",\"tags\":$tags_json,\"excerpt\":\"$excerpt\",\"readText\":\"$read_text\",\"wordCount\":$word_count,\"readingTime\":$reading_time}"
 
     # Read current manifest
     local temp_manifest=$(cat content-manifest.json)
@@ -138,6 +140,62 @@ parse_date_for_sort() {
     echo "${year}${month}"
 }
 
+# Function to calculate reading time
+calculate_reading_time() {
+    local file="$1"
+    local wpm=200
+    if [ -f "config.json" ]; then
+        wpm=$(jq -r '.readingTime.wordsPerMinute // 200' config.json)
+    fi
+
+    # Count words in story-body section
+    local word_count=$(grep -A 10000 '<div class="story-body">' "$file" | \
+                       grep -B 10000 '</div>' | head -n -1 | \
+                       sed 's/<[^>]*>//g' | wc -w)
+
+    # Calculate reading time (round up)
+    local reading_time=$(( (word_count + wpm - 1) / wpm ))
+    if [ "$reading_time" -lt 1 ]; then reading_time=1; fi
+
+    echo "${word_count}|${reading_time}"
+}
+
+# Function to generate social meta tags
+generate_social_meta() {
+    local title="$1"
+    local description="$2"
+    local url="$3"
+    local type="$4"
+    local image="${5:-https://tomaranai.pro/og-image.png}"
+
+    if [ -f "config.json" ]; then
+        local enabled=$(jq -r '.features.socialMetaTags // true' config.json)
+        if [ "$enabled" != "true" ]; then echo ""; return; fi
+
+        # Get default image from config
+        local default_image=$(jq -r '.seo.defaultImage // "https://tomaranai.pro/og-image.png"' config.json)
+        if [ "$image" == "https://tomaranai.pro/og-image.png" ]; then
+            image="$default_image"
+        fi
+    fi
+
+    # Escape quotes in text
+    title=$(echo "$title" | sed 's/"/\&quot;/g')
+    description=$(echo "$description" | sed 's/"/\&quot;/g')
+
+    cat << EOF
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
+  <meta property="og:url" content="${url}" />
+  <meta property="og:type" content="${type}" />
+  <meta property="og:image" content="${image}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:image" content="${image}" />
+EOF
+}
+
 # Function to generate a card article block
 generate_card() {
     local filepath="$1"
@@ -222,11 +280,29 @@ generate_page() {
         excerpt=$(echo "$metadata" | cut -d'|' -f13)
         read_text=$(echo "$metadata" | cut -d'|' -f16)
 
+        # Calculate reading time
+        reading_data=$(calculate_reading_time "$file")
+        word_count=$(echo "$reading_data" | cut -d'|' -f1)
+        reading_time=$(echo "$reading_data" | cut -d'|' -f2)
+
         cards_html+=$(generate_card "$file" "$title" "$date" "$tags" "$excerpt" "$read_text" "$is_blog")
 
         # Add to JSON manifest
-        add_to_manifest "$page_type" "$file" "$title" "$date" "$tags" "$excerpt" "$read_text"
+        add_to_manifest "$page_type" "$file" "$title" "$date" "$tags" "$excerpt" "$read_text" "$word_count" "$reading_time"
     done
+
+    # Get base URL from config
+    BASE_URL="https://tomaranai.pro"
+    SITE_TITLE="TOMARANAI PROJECT"
+    SITE_DESCRIPTION="Short sci-fi fiction, satire, and projects by @gamingTimewarp"
+    if [ -f "config.json" ]; then
+        BASE_URL=$(jq -r '.site.baseUrl' config.json)
+        SITE_TITLE=$(jq -r '.site.title' config.json)
+        SITE_DESCRIPTION=$(jq -r '.site.description' config.json)
+    fi
+
+    # Generate social meta tags
+    social_meta=$(generate_social_meta "${page_title} — TOMARANAI PROJECT" "${page_subtitle}" "${BASE_URL}/${output_file}" "website")
 
     # Generate the full HTML page
     cat > "$output_file" << PAGE_EOF
@@ -237,6 +313,11 @@ generate_page() {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${page_title} — TOMARANAI PROJECT</title>
+  <meta name="description" content="${page_subtitle}" />
+  <link rel="canonical" href="${BASE_URL}/${output_file}" />
+${social_meta}
+  <link rel="alternate" type="application/rss+xml" title="${SITE_TITLE} RSS Feed" href="${BASE_URL}/feed.rss" />
+  <link rel="alternate" type="application/atom+xml" title="${SITE_TITLE} Atom Feed" href="${BASE_URL}/feed.atom" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">

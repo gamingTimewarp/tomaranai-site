@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TOMARANAI PROJECT</title>
+    <link>https://tomaranai.pro/ject.html</link>
+    <description>Short sci-fi fiction, satire, and projects by @gamingTimewarp</description>
+    <language>en-us</language>
+    <atom:link href="https://tomaranai.pro/feed.rss" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Internet Mole Day is Coming</title>
+      <link>https://tomaranai.pro/blog/blog-internet-mole-day.html</link>
+      <guid>https://tomaranai.pro/blog/blog-internet-mole-day.html</guid>
+      <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+      <description>After doing some random napkin maths, I came to a conclusion I found interesting and thought you all would appreciate. Through some intense googling, estimates for the size of all data on the internet...</description>
+    </item>
+    <item>
+      <title>Ω𝄪</title>
+      <link>https://tomaranai.pro/blog/blog-omega-doublesharp.html</link>
+      <guid>https://tomaranai.pro/blog/blog-omega-doublesharp.html</guid>
+      <pubDate>01 Nov 2021 00:00:00 +0000</pubDate>
+      <description>Ω𝄪א Assembly has zero-byte opcodes, as Ω𝄪 only makes use of one operation. It also has only one register, which the output is automatically stored to, and so does not need memory addresses. The output...</description>
+    </item>
+    <item>
+      <title>end.</title>
+      <link>https://tomaranai.pro/stories/story-end.html</link>
+      <guid>https://tomaranai.pro/stories/story-end.html</guid>
+      <pubDate>01 Nov 2018 00:00:00 +0000</pubDate>
+      <description>“Kid, you’ve got the power to end the world. Use it the best that you can. For all of us.”</description>
+    </item>
+    <item>
+      <title>Spaghetti Eastern</title>
+      <link>https://tomaranai.pro/stories/story-spaghetti-eastern.html</link>
+      <guid>https://tomaranai.pro/stories/story-spaghetti-eastern.html</guid>
+      <pubDate>01 May 2025 00:00:00 +0000</pubDate>
+      <description>My name is Doctor Fancyboots. If you&apos;ve heard of me, you probably know me as a field agent for the Bureau of Narrative Compliance in the capital city of Chin&apos;llyein. However, as a wizard, I am occasio...</description>
+    </item>
+    <item>
+      <title>The Predicament, Dicament, and Postdicament of Doctor Fancyboots</title>
+      <link>https://tomaranai.pro/stories/story-postdicament.html</link>
+      <guid>https://tomaranai.pro/stories/story-postdicament.html</guid>
+      <pubDate>01 Mar 2024 00:00:00 +0000</pubDate>
+      <description>Dr. Fancyboots had quite many problems. This was not his first predicament, nor his last. This streak of problems began when he was born-- Dr. Fancyboots, like most people, was of course born his whol...</description>
+    </item>
+    <item>
+      <title>Who is Doctor Fancyboots?</title>
+      <link>https://tomaranai.pro/blog/whois-fancyboots.html</link>
+      <guid>https://tomaranai.pro/blog/whois-fancyboots.html</guid>
+      <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
+      <description>If you&apos;ve been messing around on this website, you&apos;ve probably wondered at some point who this Doctor Fancyboots guy who keeps showing up is. Here&apos;s the rundown.</description>
+    </item>
+    <item>
+      <title>One Hundred Haiku on Cucumber Water</title>
+      <link>https://tomaranai.pro/stories/story-cucumber-haiku.html</link>
+      <guid>https://tomaranai.pro/stories/story-cucumber-haiku.html</guid>
+      <pubDate>01 Jan 2023 00:00:00 +0000</pubDate>
+      <description>I. Cucumber Water, The absence of a fleeting thought. Tastes of what once was.</description>
+    </item>
+    <item>
+      <title>A Tale of AI and Apples</title>
+      <link>https://tomaranai.pro/blog/blog-AI-BadApple.html</link>
+      <guid>https://tomaranai.pro/blog/blog-AI-BadApple.html</guid>
+      <pubDate>01 Feb 2026 00:00:00 +0000</pubDate>
+      <description>In other words, it was a project exactly like any other AI assisted project: one where scripts could be generated and iterated in mere seconds, but one where bugs that humans never would have written ...</description>
+    </item>
+    <item>
+      <title>Digital Miracles</title>
+      <link>https://tomaranai.pro/blog/blog-digital-miracles.html</link>
+      <guid>https://tomaranai.pro/blog/blog-digital-miracles.html</guid>
+      <pubDate>01 Feb 2024 00:00:00 +0000</pubDate>
+      <description>In conclusion, miracles are deceptively simple to perform, especially in a world of your creation. What you use this information for I am in no way responsible for. I also must forewarn you that your ...</description>
+    </item>
+    <item>
+      <title>A Field Trip to a Pond</title>
+      <link>https://tomaranai.pro/stories/story-pond-trip.html</link>
+      <guid>https://tomaranai.pro/stories/story-pond-trip.html</guid>
+      <pubDate>01 Feb 2023 00:00:00 +0000</pubDate>
+      <description>Had a crazy magical field trip of your own? I&apos;d love to hear.</description>
+    </item>
+    <item>
+      <title>The Antedicament of Doctor Fancyboots</title>
+      <link>https://tomaranai.pro/stories/story-antedicament.html</link>
+      <guid>https://tomaranai.pro/stories/story-antedicament.html</guid>
+      <pubDate>01 Apr 2024 00:00:00 +0000</pubDate>
+      <description>My name is Sy DuCharacter. This story begins as I arrived to work at the famous gyro shop, Forgotten Gyros… It was the day that the Inspector of Cleanliness, referred to in the biz as the I.C., was go...</description>
+    </item>
+  </channel>
+</rss>

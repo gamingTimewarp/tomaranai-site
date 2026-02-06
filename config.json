@@ -1,0 +1,27 @@
+{
+  "site": {
+    "title": "TOMARANAI PROJECT",
+    "domain": "tomaranai.pro",
+    "baseUrl": "https://tomaranai.pro",
+    "description": "Short sci-fi fiction, satire, and projects by @gamingTimewarp",
+    "author": "@gamingTimewarp",
+    "authorEmail": "gamingTimewarp@tomaranai.pro",
+    "twitterHandle": "@gamingTimewarp"
+  },
+  "features": {
+    "rssFeed": true,
+    "atomFeed": true,
+    "socialMetaTags": true,
+    "readingTime": true,
+    "sitemap": true,
+    "robotsTxt": true,
+    "canonicalUrls": true
+  },
+  "seo": {
+    "defaultImage": "https://tomaranai.pro/og-image.png",
+    "twitterCard": "summary_large_image"
+  },
+  "readingTime": {
+    "wordsPerMinute": 200
+  }
+}

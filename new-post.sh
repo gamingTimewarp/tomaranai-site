@@ -139,6 +139,46 @@ done < "$txtfile"
 # Process any remaining paragraph
 process_paragraph "$current_para"
 
+# --- Calculate reading time ---
+wpm=200
+BASE_URL="https://tomaranai.pro"
+SITE_TITLE="TOMARANAI PROJECT"
+DEFAULT_IMAGE="https://tomaranai.pro/og-image.png"
+if [ -f "config.json" ]; then
+    wpm=$(jq -r '.readingTime.wordsPerMinute // 200' config.json)
+    BASE_URL=$(jq -r '.site.baseUrl' config.json)
+    SITE_TITLE=$(jq -r '.site.title' config.json)
+    DEFAULT_IMAGE=$(jq -r '.seo.defaultImage // "https://tomaranai.pro/og-image.png"' config.json)
+fi
+word_count=$(echo "$body" | sed 's/<[^>]*>//g' | wc -w)
+reading_time=$(( (word_count + wpm - 1) / wpm ))
+if [ "$reading_time" -lt 1 ]; then reading_time=1; fi
+
+# --- Generate description from first 150 chars of body ---
+description=$(echo "$body" | sed 's/<[^>]*>//g' | tr '\n' ' ' | sed 's/  */ /g' | cut -c1-150 | sed 's/"/\&quot;/g')
+if [ ${#description} -ge 145 ]; then
+    description="${description}..."
+fi
+
+# --- Generate social meta tags ---
+social_meta_enabled=true
+if [ -f "config.json" ]; then
+    social_meta_enabled=$(jq -r '.features.socialMetaTags // true' config.json)
+fi
+
+social_meta=""
+if [ "$social_meta_enabled" == "true" ]; then
+    social_meta="  <meta property=\"og:title\" content=\"${title} — TOMARANAI PROJECT\" />
+  <meta property=\"og:description\" content=\"${description}\" />
+  <meta property=\"og:url\" content=\"${BASE_URL}/${output_dir}/${filename}.html\" />
+  <meta property=\"og:type\" content=\"article\" />
+  <meta property=\"og:image\" content=\"${DEFAULT_IMAGE}\" />
+  <meta name=\"twitter:card\" content=\"summary_large_image\" />
+  <meta name=\"twitter:title\" content=\"${title} — TOMARANAI PROJECT\" />
+  <meta name=\"twitter:description\" content=\"${description}\" />
+  <meta name=\"twitter:image\" content=\"${DEFAULT_IMAGE}\" />"
+fi
+
 # --- Write the HTML file ---
 cat > "${output_dir}/${filename}.html" << HTMLEOF
 <!DOCTYPE html>
@@ -148,6 +188,11 @@ cat > "${output_dir}/${filename}.html" << HTMLEOF
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${title} — TOMARANAI PROJECT</title>
+  <meta name="description" content="${description}" />
+  <link rel="canonical" href="${BASE_URL}/${output_dir}/${filename}.html" />
+${social_meta}
+  <link rel="alternate" type="application/rss+xml" title="${SITE_TITLE} RSS Feed" href="${BASE_URL}/feed.rss" />
+  <link rel="alternate" type="application/atom+xml" title="${SITE_TITLE} Atom Feed" href="${BASE_URL}/feed.atom" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -175,6 +220,7 @@ cat > "${output_dir}/${filename}.html" << HTMLEOF
       <h1 class="story-title">${title}</h1>
       <div class="story-byline">
         ${byline}
+        <span class="story-reading-time">${reading_time} min read</span>
       </div>
     </header>
 
@@ -208,18 +254,24 @@ echo "-------------------------------------------"
 echo "  Done! Created: ${output_dir}/${filename}.html"
 echo "-------------------------------------------"
 echo ""
-echo "  Regenerating content pages..."
+echo "  Rebuilding site..."
 echo "-------------------------------------------"
 
-# Run the page generation script
-if [ -f "generate-pages.sh" ]; then
-    bash generate-pages.sh
+# Run the build script
+if [ -f "build.sh" ]; then
+    bash build.sh
 else
-    echo "  Warning: generate-pages.sh not found."
-    echo "  You may need to manually update the list pages."
+    echo "  Warning: build.sh not found."
+    echo "  Falling back to generate-pages.sh..."
+    if [ -f "generate-pages.sh" ]; then
+        bash generate-pages.sh
+    else
+        echo "  Warning: generate-pages.sh not found."
+        echo "  You may need to manually update the list pages."
+    fi
 fi
 
 echo ""
 echo "-------------------------------------------"
-echo "  All done! Your post and pages are ready."
+echo "  All done! Your post and site are ready."
 echo "-------------------------------------------"

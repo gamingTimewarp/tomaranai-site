@@ -8,7 +8,9 @@
         "Sci-Fi"
       ],
       "excerpt": "My name is Doctor Fancyboots. If you've heard of me, you probably know me as a field agent for the Bureau of Narrative Compliance in the capital city of Chin'llyein. However, as a wizard, I am occasio...",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 3388,
+      "readingTime": 17
     },
     {
       "path": "stories/story-postdicament.html",
@@ -18,7 +20,9 @@
         "Sci-Fi"
       ],
       "excerpt": "Dr. Fancyboots had quite many problems. This was not his first predicament, nor his last. This streak of problems began when he was born-- Dr. Fancyboots, like most people, was of course born his whol...",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 1485,
+      "readingTime": 8
     },
     {
       "path": "stories/story-pond-trip.html",
@@ -28,7 +32,9 @@
         "Sci-Fantasy"
       ],
       "excerpt": "Had a crazy magical field trip of your own? I'd love to hear.",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 1435,
+      "readingTime": 8
     },
     {
       "path": "stories/story-end.html",
@@ -38,7 +44,9 @@
         "Philosophy"
       ],
       "excerpt": "“Kid, you’ve got the power to end the world. Use it the best that you can. For all of us.”",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 1111,
+      "readingTime": 6
     },
     {
       "path": "stories/story-cucumber-haiku.html",
@@ -48,7 +56,9 @@
         "Sci-Fi"
       ],
       "excerpt": "I. Cucumber Water, The absence of a fleeting thought. Tastes of what once was.",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 1400,
+      "readingTime": 7
     },
     {
       "path": "stories/story-antedicament.html",
@@ -58,7 +68,9 @@
         "Sci-Fi"
       ],
       "excerpt": "My name is Sy DuCharacter. This story begins as I arrived to work at the famous gyro shop, Forgotten Gyros… It was the day that the Inspector of Cleanliness, referred to in the biz as the I.C., was go...",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 4528,
+      "readingTime": 23
     }
   ],
   "blog": [
@@ -69,8 +81,10 @@
       "tags": [
         "History and Trivia"
       ],
-      "excerpt": "If you've been messing around on this website, you've probably wondered at some point who this Doctor Fancyboots guy who keeps showing up is. Here's the rundown.'",
-      "readText": "Read post →"
+      "excerpt": "If you've been messing around on this website, you've probably wondered at some point who this Doctor Fancyboots guy who keeps showing up is. Here's the rundown.",
+      "readText": "Read post →",
+      "wordCount": 577,
+      "readingTime": 3
     },
     {
       "path": "blog/blog-omega-doublesharp.html",
@@ -80,7 +94,9 @@
         "Satire"
       ],
       "excerpt": "Ω𝄪א Assembly has zero-byte opcodes, as Ω𝄪 only makes use of one operation. It also has only one register, which the output is automatically stored to, and so does not need memory addresses. The output...",
-      "readText": "Read post →"
+      "readText": "Read post →",
+      "wordCount": 735,
+      "readingTime": 4
     },
     {
       "path": "blog/blog-internet-mole-day.html",
@@ -90,7 +106,9 @@
         "Fun Facts"
       ],
       "excerpt": "After doing some random napkin maths, I came to a conclusion I found interesting and thought you all would appreciate. Through some intense googling, estimates for the size of all data on the internet...",
-      "readText": "Read post →"
+      "readText": "Read post →",
+      "wordCount": 209,
+      "readingTime": 2
     },
     {
       "path": "blog/blog-digital-miracles.html",
@@ -100,7 +118,9 @@
         "Satire"
       ],
       "excerpt": "In conclusion, miracles are deceptively simple to perform, especially in a world of your creation. What you use this information for I am in no way responsible for. I also must forewarn you that your ...",
-      "readText": "Read post →"
+      "readText": "Read post →",
+      "wordCount": 2170,
+      "readingTime": 11
     },
     {
       "path": "blog/blog-AI-BadApple.html",
@@ -111,7 +131,9 @@
         "Touhou"
       ],
       "excerpt": "In other words, it was a project exactly like any other AI assisted project: one where scripts could be generated and iterated in mere seconds, but one where bugs that humans never would have written ...",
-      "readText": "Read post →"
+      "readText": "Read post →",
+      "wordCount": 1827,
+      "readingTime": 10
     }
   ],
   "projects": [
@@ -123,7 +145,9 @@
         "Mystery"
       ],
       "excerpt": "Click to read more.",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 232,
+      "readingTime": 2
     },
     {
       "path": "projects/project-CER-landing.html",
@@ -133,7 +157,9 @@
         "Visual Novels"
       ],
       "excerpt": "Click to read more.",
-      "readText": "Read story →"
+      "readText": "Read story →",
+      "wordCount": 37,
+      "readingTime": 1
     }
   ]
 }
