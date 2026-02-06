@@ -17,13 +17,27 @@
   // Only run on list pages
   if (!pageType) return;
 
-  // Get active tag from URL parameter
+  // Get active filters from URL parameters
   var urlParams = new URLSearchParams(window.location.search);
   var activeTag = urlParams.get('tag');
+  var activeYear = urlParams.get('year');
+  var activeMonth = urlParams.get('month');
 
   // Global variables
   var allItems = [];
   var allTags = [];
+  var allDates = []; // Array of {year, month, count}
+
+  // Parse date string (e.g., "May 2025") into {year, month}
+  function parseDate(dateStr) {
+    if (!dateStr || dateStr === 'Coming Soon') return null;
+    var parts = dateStr.split(' ');
+    if (parts.length !== 2) return null;
+    return {
+      month: parts[0],
+      year: parts[1]
+    };
+  }
 
   // Filter items by tag
   function filterByTag(items, tag) {
@@ -33,6 +47,77 @@
         return t.toLowerCase() === tag.toLowerCase();
       });
     });
+  }
+
+  // Filter items by date
+  function filterByDate(items, year, month) {
+    if (!year && !month) return items;
+    return items.filter(function(item) {
+      var itemDate = parseDate(item.date);
+      if (!itemDate) return false;
+
+      if (year && month) {
+        return itemDate.year === year && itemDate.month === month;
+      } else if (year) {
+        return itemDate.year === year;
+      } else if (month) {
+        return itemDate.month === month;
+      }
+      return true;
+    });
+  }
+
+  // Apply all active filters
+  function applyFilters(items, tag, year, month) {
+    var filtered = items;
+    if (tag) filtered = filterByTag(filtered, tag);
+    if (year || month) filtered = filterByDate(filtered, year, month);
+    return filtered;
+  }
+
+  // Generate archive dropdown
+  function generateArchiveDropdown(dates, currentYear, currentMonth) {
+    // Group by year
+    var yearGroups = {};
+    dates.forEach(function(dateObj) {
+      var year = dateObj.year;
+      if (!yearGroups[year]) {
+        yearGroups[year] = {count: 0, months: {}};
+      }
+      yearGroups[year].count += dateObj.count;
+      yearGroups[year].months[dateObj.month] = dateObj.count;
+    });
+
+    var years = Object.keys(yearGroups).sort().reverse();
+    var options = ['<option value="">All dates</option>'];
+
+    years.forEach(function(year) {
+      var yearData = yearGroups[year];
+      var isYearSelected = currentYear === year && !currentMonth;
+      options.push('<option value="year:' + year + '"' + (isYearSelected ? ' selected' : '') + '>' +
+                   year + ' (' + yearData.count + ')' +
+                   '</option>');
+
+      // Add months for this year
+      var months = Object.keys(yearData.months).sort(function(a, b) {
+        var monthOrder = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        return monthOrder.indexOf(b) - monthOrder.indexOf(a);
+      });
+
+      months.forEach(function(month) {
+        var isMonthSelected = currentYear === year && currentMonth === month;
+        options.push('<option value="date:' + year + ':' + month + '"' + (isMonthSelected ? ' selected' : '') + '>' +
+                     '  ' + month + ' ' + year + ' (' + yearData.months[month] + ')' +
+                     '</option>');
+      });
+    });
+
+    return '<div class="archive-filter">' +
+           '<label for="archive-select" class="archive-label">Archive:</label>' +
+           '<select id="archive-select" class="archive-select">' +
+           options.join('\n') +
+           '</select>' +
+           '</div>';
   }
 
   // Generate tag cloud
@@ -90,13 +175,34 @@
     }).join('\n');
   }
 
+  // Build URL with current filters
+  function buildFilterURL(tag, year, month) {
+    var params = [];
+    if (tag) params.push('tag=' + encodeURIComponent(tag));
+    if (year && month) {
+      params.push('year=' + encodeURIComponent(year));
+      params.push('month=' + encodeURIComponent(month));
+    } else if (year) {
+      params.push('year=' + encodeURIComponent(year));
+    }
+    return pageType + '.html' + (params.length ? '?' + params.join('&') : '');
+  }
+
   // Render content
-  function renderContent(items, tag) {
+  function renderContent(items, tag, year, month) {
     var cardGrid = document.querySelector('.card-grid');
     if (!cardGrid) return;
 
-    // Filter items if tag is specified
-    var filteredItems = filterByTag(items, tag);
+    // Filter items by all active filters
+    var filteredItems = applyFilters(items, tag, year, month);
+
+    // Generate and insert archive dropdown
+    var archiveHTML = generateArchiveDropdown(allDates, year, month);
+    var existingArchive = document.querySelector('.archive-filter');
+    if (existingArchive) {
+      existingArchive.remove();
+    }
+    cardGrid.insertAdjacentHTML('beforebegin', archiveHTML);
 
     // Generate and insert tag cloud
     var tagCloudHTML = generateTagCloud(allTags, tag);
@@ -110,9 +216,14 @@
     var cardsHTML = generateCards(filteredItems);
 
     // Show "no results" message if filtered but empty
-    if (filteredItems.length === 0 && tag) {
+    if (filteredItems.length === 0 && (tag || year || month)) {
+      var filterDesc = [];
+      if (tag) filterDesc.push('tag "' + tag + '"');
+      if (year && month) filterDesc.push('date "' + month + ' ' + year + '"');
+      else if (year) filterDesc.push('year "' + year + '"');
+
       cardsHTML = '<div class="no-results">' +
-                 '<p>No content found with tag "' + tag + '"</p>' +
+                 '<p>No content found with ' + filterDesc.join(' and ') + '</p>' +
                  '<a href="' + pageType + '.html" class="button">Show all</a>' +
                  '</div>';
     }
@@ -125,12 +236,35 @@
       link.addEventListener('click', function(e) {
         e.preventDefault();
         var tag = this.getAttribute('data-tag');
-        var newUrl = pageType + '.html?tag=' + encodeURIComponent(tag);
-        window.history.pushState({tag: tag}, '', newUrl);
-        renderContent(allItems, tag);
+        var newUrl = buildFilterURL(tag, year, month);
+        window.history.pushState({tag: tag, year: year, month: month}, '', newUrl);
+        renderContent(allItems, tag, year, month);
         window.scrollTo({top: 0, behavior: 'smooth'});
       });
     });
+
+    // Add change handler to archive dropdown
+    var archiveSelect = document.getElementById('archive-select');
+    if (archiveSelect) {
+      archiveSelect.addEventListener('change', function(e) {
+        var value = this.value;
+        var newYear = null;
+        var newMonth = null;
+
+        if (value.startsWith('year:')) {
+          newYear = value.split(':')[1];
+        } else if (value.startsWith('date:')) {
+          var parts = value.split(':');
+          newYear = parts[1];
+          newMonth = parts[2];
+        }
+
+        var newUrl = buildFilterURL(tag, newYear, newMonth);
+        window.history.pushState({tag: tag, year: newYear, month: newMonth}, '', newUrl);
+        renderContent(allItems, tag, newYear, newMonth);
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+    }
 
     // Add click handler to clear filter button
     var clearButton = document.querySelector('.tag-filter-clear');
@@ -138,7 +272,7 @@
       clearButton.addEventListener('click', function(e) {
         e.preventDefault();
         window.history.pushState({}, '', pageType + '.html');
-        renderContent(allItems, null);
+        renderContent(allItems, null, null, null);
         window.scrollTo({top: 0, behavior: 'smooth'});
       });
     }
@@ -148,7 +282,9 @@
   window.addEventListener('popstate', function(e) {
     var urlParams = new URLSearchParams(window.location.search);
     var tag = urlParams.get('tag');
-    renderContent(allItems, tag);
+    var year = urlParams.get('year');
+    var month = urlParams.get('month');
+    renderContent(allItems, tag, year, month);
   });
 
   // Fetch and load content from manifest
@@ -173,8 +309,30 @@
         });
       });
 
-      // Initial render with active tag from URL
-      renderContent(items, activeTag);
+      // Collect all dates from all items
+      var dateCounts = {};
+      items.forEach(function(item) {
+        var dateObj = parseDate(item.date);
+        if (dateObj) {
+          var key = dateObj.year + ':' + dateObj.month;
+          if (!dateCounts[key]) {
+            dateCounts[key] = {
+              year: dateObj.year,
+              month: dateObj.month,
+              count: 0
+            };
+          }
+          dateCounts[key].count++;
+        }
+      });
+
+      // Convert to array
+      allDates = Object.keys(dateCounts).map(function(key) {
+        return dateCounts[key];
+      });
+
+      // Initial render with active filters from URL
+      renderContent(items, activeTag, activeYear, activeMonth);
     })
     .catch(function(error) {
       console.warn('Could not load content:', error.message);
