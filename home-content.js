@@ -13,7 +13,7 @@
     {
       sectionTitle: 'Latest Stories',
       category: 'stories',
-      cardClass: '',
+      cardClass: 'card-tag--story',
       readText: 'Read story →'
     },
     {
@@ -25,7 +25,7 @@
     {
       sectionTitle: 'Other Projects',
       category: 'projects',
-      cardClass: '',
+      cardClass: 'card-tag--project',
       readText: null // Keep original
     }
   ];
