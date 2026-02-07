@@ -225,6 +225,7 @@ ${jsonld}
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../css/print.css" media="print" />
 </head>
 <body>
 
@@ -244,7 +245,10 @@ ${jsonld}
   <article class="story-post">
     <header class="story-header">
       <a href="${back_page}" class="story-back">${back_label}</a>
-      ${tags_html}
+      <div class="story-tags">
+        ${tags_html}
+        <a href="../tags.html" class="story-tags-browse">Browse all tags →</a>
+      </div>
       <h1 class="story-title">${title}</h1>
       <div class="story-byline">
         ${byline}
@@ -273,6 +277,9 @@ ${body}
   </footer>
 
   <script src="../includes.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/reading-progress.js"></script>
+  <script src="../js/social-share.js"></script>
 </body>
 </html>
 HTMLEOF

@@ -35,12 +35,27 @@ fi
 # Get all dates and sort
 declare -A year_months
 jq -r '[.stories[], .blog[], .projects[]] | .[].date' content-manifest.json | while read date; do
+    # Handle special case: "Coming Soon"
+    if [ "$date" == "Coming Soon" ]; then
+        echo "coming-soon|Coming Soon"
+        continue
+    fi
+
     month=$(echo "$date" | awk '{print $1}')
     year=$(echo "$date" | awk '{print $NF}')
     echo "${year}|${month}"
 done | sort -u | while IFS='|' read year month; do
     # Create archive page for this year-month
-    filename="archives/${year}-${month,,}.html"
+    # Handle special case for "Coming Soon"
+    if [ "$year" == "coming-soon" ]; then
+        filename="archives/coming-soon.html"
+        display_date="Coming Soon"
+        page_title="Coming Soon"
+    else
+        filename="archives/${year}-${month,,}.html"
+        display_date="${month} ${year}"
+        page_title="${month} ${year}"
+    fi
 
     # Generate page
     cat > "$filename" << EOF
@@ -50,8 +65,8 @@ done | sort -u | while IFS='|' read year month; do
   <script src="../redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${month} ${year} Archives — ${SITE_TITLE}</title>
-  <link rel="canonical" href="${BASE_URL}/archives/${year}-${month,,}.html" />
+  <title>${page_title} Archives — ${SITE_TITLE}</title>
+  <link rel="canonical" href="${BASE_URL}/${filename}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -80,13 +95,13 @@ done | sort -u | while IFS='|' read year month; do
   <!-- ===== PAGE HEADER ===== -->
   <header class="page-header">
     <div class="page-header-label">Archives</div>
-    <h1 class="page-header-title">${month} ${year}</h1>
-    <p class="page-header-sub">Browse content from ${month} ${year}</p>
+    <h1 class="page-header-title">${page_title}</h1>
+    <p class="page-header-sub">Browse content from ${page_title}</p>
   </header>
 
   <!-- ===== CONTENT ===== -->
   <main class="content">
-    <div class="card-grid card-grid--single" data-archive-date="${month} ${year}">
+    <div class="card-grid card-grid--single" data-archive-date="${display_date}">
       <!-- Content loaded dynamically -->
     </div>
   </main>
