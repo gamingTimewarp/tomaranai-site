@@ -1,0 +1,161 @@
+/* print.css — Print-specific styles */
+
+@media print {
+  /* Hide non-essential elements */
+  nav,
+  .nav,
+  .nav-hamburger,
+  .footer,
+  .footer-newsletter,
+  .story-feedback,
+  .social-share,
+  .share-buttons,
+  #reading-progress,
+  .search-container,
+  .section-toggle,
+  .section-collapse-btn,
+  .tag-filter-clear,
+  .archive-filter,
+  button {
+    display: none !important;
+  }
+
+  /* Reset colors for print */
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 2cm;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black;
+    background: white;
+  }
+
+  /* Links */
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  /* Show URLs for external links */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Don't show URLs for internal links */
+  a[href^="/"]:after,
+  a[href^="."]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* Page breaks */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  p, blockquote {
+    page-break-inside: avoid;
+  }
+
+  .card,
+  article {
+    page-break-inside: avoid;
+  }
+
+  /* Story content */
+  .story-post {
+    max-width: 100%;
+  }
+
+  .story-header {
+    border-bottom: 2px solid black;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+  }
+
+  .story-title {
+    font-size: 24pt;
+    margin-bottom: 0.5em;
+  }
+
+  .story-byline {
+    font-size: 10pt;
+    color: #666 !important;
+  }
+
+  .story-body {
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  /* Tags */
+  .card-tag {
+    border: 1px solid black !important;
+    padding: 2px 6px;
+    margin-right: 5px;
+    display: inline-block;
+  }
+
+  /* Cards for list pages */
+  .card {
+    border: 1px solid #ddd !important;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  .card-title {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+
+  .card-excerpt {
+    font-size: 11pt;
+  }
+
+  /* Page headers */
+  .page-header {
+    margin-bottom: 2em;
+    border-bottom: 2px solid black;
+    padding-bottom: 1em;
+  }
+
+  .page-header-title {
+    font-size: 24pt;
+  }
+
+  .page-header-sub {
+    font-size: 11pt;
+    color: #666 !important;
+  }
+
+  /* Remove unnecessary spacing */
+  .content {
+    padding: 0;
+  }
+
+  /* Code blocks (if any) */
+  pre, code {
+    border: 1px solid #ddd !important;
+    background: #f5f5f5 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}

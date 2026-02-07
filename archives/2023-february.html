@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../redirect.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>February 2023 Archives — TOMARANAI PROJECT</title>
+  <link rel="canonical" href="https://tomaranai.pro/archives/2023-february.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../js/config.js"></script>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="../ject.html" class="nav-logo"><ruby>止まらない<rt>TOMARANAI</rt></ruby> PROJECT</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../ject.html">Home</a></li>
+      <li><a href="../stories.html">Stories</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="page-header-label">Archives</div>
+    <h1 class="page-header-title">February 2023</h1>
+    <p class="page-header-sub">Browse content from February 2023</p>
+  </header>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="content">
+    <div class="card-grid card-grid--single" data-archive-date="February 2023">
+      <!-- Content loaded dynamically -->
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-newsletter">
+      <span class="footer-newsletter-label">Subscribe to updates</span>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/gamingTimewarp"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/gamingTimewarp', 'popupwindow')"
+        class="newsletter-form"
+      >
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">© 2026 @gamingTimewarp. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
+      <div class="footer-links">
+        <a href="https://github.com/gamingTimewarp" target="_blank">GitHub</a>
+        <a href="mailto:gamingTimewarp@tomaranai.pro">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../includes.js"></script>
+  <script src="../js/archive-loader.js"></script>
+</body>
+</html>

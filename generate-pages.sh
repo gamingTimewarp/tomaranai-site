@@ -160,6 +160,58 @@ calculate_reading_time() {
     echo "${word_count}|${reading_time}"
 }
 
+# Function to generate JSON-LD structured data
+generate_jsonld() {
+    local type="$1"
+    local title="$2"
+    local description="$3"
+    local url="$4"
+    local date="$5"
+    local author="${6:-@gamingTimewarp}"
+    local word_count="${7:-0}"
+
+    if [ -f "config.json" ]; then
+        local enabled=$(jq -r '.features.jsonLd // true' config.json)
+        if [ "$enabled" != "true" ]; then echo ""; return; fi
+    fi
+
+    # Escape quotes for JSON
+    title=$(echo "$title" | sed 's/"/\\"/g')
+    description=$(echo "$description" | sed 's/"/\\"/g')
+
+    if [ "$type" == "Article" ]; then
+        cat << EOF
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${title}",
+    "description": "${description}",
+    "url": "${url}",
+    "datePublished": "${date}",
+    "author": {
+      "@type": "Person",
+      "name": "${author}"
+    },
+    "wordCount": ${word_count}
+  }
+  </script>
+EOF
+    else
+        cat << EOF
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "${title}",
+    "description": "${description}",
+    "url": "${url}"
+  }
+  </script>
+EOF
+    fi
+}
+
 # Function to generate social meta tags
 generate_social_meta() {
     local title="$1"
@@ -304,6 +356,9 @@ generate_page() {
     # Generate social meta tags
     social_meta=$(generate_social_meta "${page_title} — TOMARANAI PROJECT" "${page_subtitle}" "${BASE_URL}/${output_file}" "website")
 
+    # Generate JSON-LD structured data
+    jsonld=$(generate_jsonld "WebPage" "${page_title} — TOMARANAI PROJECT" "${page_subtitle}" "${BASE_URL}/${output_file}")
+
     # Generate the full HTML page
     cat > "$output_file" << PAGE_EOF
 <!DOCTYPE html>
@@ -316,6 +371,7 @@ generate_page() {
   <meta name="description" content="${page_subtitle}" />
   <link rel="canonical" href="${BASE_URL}/${output_file}" />
 ${social_meta}
+${jsonld}
   <link rel="alternate" type="application/rss+xml" title="${SITE_TITLE} RSS Feed" href="${BASE_URL}/feed.rss" />
   <link rel="alternate" type="application/atom+xml" title="${SITE_TITLE} Atom Feed" href="${BASE_URL}/feed.atom" />
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -162,8 +162,10 @@ fi
 
 # --- Generate social meta tags ---
 social_meta_enabled=true
+jsonld_enabled=true
 if [ -f "config.json" ]; then
     social_meta_enabled=$(jq -r '.features.socialMetaTags // true' config.json)
+    jsonld_enabled=$(jq -r '.features.jsonLd // true' config.json)
 fi
 
 social_meta=""
@@ -179,6 +181,31 @@ if [ "$social_meta_enabled" == "true" ]; then
   <meta name=\"twitter:image\" content=\"${DEFAULT_IMAGE}\" />"
 fi
 
+# --- Generate JSON-LD structured data ---
+jsonld=""
+if [ "$jsonld_enabled" == "true" ]; then
+    # Escape quotes for JSON
+    title_escaped=$(echo "$title" | sed 's/"/\\"/g')
+    description_escaped=$(echo "$description" | sed 's/"/\\"/g' | sed 's/\&quot;/\\"/g')
+
+    jsonld="  <script type=\"application/ld+json\">
+  {
+    \"@context\": \"https://schema.org\",
+    \"@type\": \"Article\",
+    \"headline\": \"${title_escaped}\",
+    \"description\": \"${description_escaped}\",
+    \"url\": \"${BASE_URL}/${output_dir}/${filename}.html\",
+    \"datePublished\": \"${date}\",
+    \"author\": {
+      \"@type\": \"Person\",
+      \"name\": \"@gamingTimewarp\"
+    },
+    \"wordCount\": ${word_count},
+    \"timeRequired\": \"PT${reading_time}M\"
+  }
+  </script>"
+fi
+
 # --- Write the HTML file ---
 cat > "${output_dir}/${filename}.html" << HTMLEOF
 <!DOCTYPE html>
@@ -191,6 +218,7 @@ cat > "${output_dir}/${filename}.html" << HTMLEOF
   <meta name="description" content="${description}" />
   <link rel="canonical" href="${BASE_URL}/${output_dir}/${filename}.html" />
 ${social_meta}
+${jsonld}
   <link rel="alternate" type="application/rss+xml" title="${SITE_TITLE} RSS Feed" href="${BASE_URL}/feed.rss" />
   <link rel="alternate" type="application/atom+xml" title="${SITE_TITLE} Atom Feed" href="${BASE_URL}/feed.atom" />
   <link rel="preconnect" href="https://fonts.googleapis.com">

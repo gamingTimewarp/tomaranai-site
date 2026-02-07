@@ -1,3 +1,6 @@
+// config.js — Site configuration for JavaScript
+// Auto-generated from config.json - DO NOT EDIT MANUALLY
+window.SiteConfig =
 {
   "site": {
     "title": "TOMARANAI PROJECT",
@@ -60,7 +63,13 @@
     "storageKey": "theme-preference"
   },
   "socialShare": {
-    "platforms": ["twitter", "facebook", "linkedin", "email"],
+    "platforms": [
+      "twitter",
+      "facebook",
+      "linkedin",
+      "email"
+    ],
     "twitterVia": "@gamingTimewarp"
   }
 }
+;

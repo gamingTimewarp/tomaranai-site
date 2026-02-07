@@ -1,44 +1,61 @@
+#!/bin/bash
+# generate-tags-page.sh — Generate tags index page
+# Usage: bash generate-tags-page.sh
+
+set -e
+
+echo "Generating tags page..."
+
+# Check if feature is enabled
+if [ -f "config.json" ]; then
+    ENABLED=$(jq -r '.features.tagsPage // true' config.json)
+    if [ "$ENABLED" != "true" ]; then
+        echo "  Tags page disabled in config.json"
+        exit 0
+    fi
+fi
+
+# Get site config
+BASE_URL="https://tomaranai.pro"
+SITE_TITLE="TOMARANAI PROJECT"
+if [ -f "config.json" ]; then
+    BASE_URL=$(jq -r '.site.baseUrl' config.json)
+    SITE_TITLE=$(jq -r '.site.title' config.json)
+fi
+
+# Check if manifest exists
+if [ ! -f "content-manifest.json" ]; then
+    echo "  Error: content-manifest.json not found"
+    exit 1
+fi
+
+# Generate tags page
+cat > tags.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <script src="redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog — TOMARANAI PROJECT</title>
-  <meta name="description" content="Satire, musings, and the occasional mathematical rambling." />
-  <link rel="canonical" href="https://tomaranai.pro/blog.html" />
-  <meta property="og:title" content="Blog — TOMARANAI PROJECT" />
-  <meta property="og:description" content="Satire, musings, and the occasional mathematical rambling." />
-  <meta property="og:url" content="https://tomaranai.pro/blog.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://tomaranai.pro/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog — TOMARANAI PROJECT" />
-  <meta name="twitter:description" content="Satire, musings, and the occasional mathematical rambling." />
-  <meta name="twitter:image" content="https://tomaranai.pro/og-image.png" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Blog — TOMARANAI PROJECT",
-    "description": "Satire, musings, and the occasional mathematical rambling.",
-    "url": "https://tomaranai.pro/blog.html"
-  }
-  </script>
-  <link rel="alternate" type="application/rss+xml" title="TOMARANAI PROJECT RSS Feed" href="https://tomaranai.pro/feed.rss" />
-  <link rel="alternate" type="application/atom+xml" title="TOMARANAI PROJECT Atom Feed" href="https://tomaranai.pro/feed.atom" />
+EOF
+
+cat >> tags.html << EOF
+  <title>Tags — ${SITE_TITLE}</title>
+  <link rel="canonical" href="${BASE_URL}/tags.html" />
+EOF
+
+cat >> tags.html << 'EOF'
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script src="js/config.js"></script>
 </head>
 <body>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav">
-    <a href="ject.html" class="nav-logo"><ruby>
-            止まらない<rt>TOMARANAI</rt>
-        </ruby> PROJECT</a>
+    <a href="ject.html" class="nav-logo"><ruby>止まらない<rt>TOMARANAI</rt></ruby> PROJECT</a>
     <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
       <span></span>
       <span></span>
@@ -47,7 +64,7 @@
     <ul class="nav-links">
       <li><a href="ject.html">Home</a></li>
       <li><a href="stories.html">Stories</a></li>
-      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -55,15 +72,15 @@
 
   <!-- ===== PAGE HEADER ===== -->
   <header class="page-header">
-    <div class="page-header-label">Opinions & Observations</div>
-    <h1 class="page-header-title">Blog</h1>
-    <p class="page-header-sub">Satire, musings, and the occasional mathematical rambling.</p>
+    <div class="page-header-label">Browse by Topic</div>
+    <h1 class="page-header-title">All Tags</h1>
+    <p class="page-header-sub">Explore content by category and theme</p>
   </header>
 
-  <!-- ===== BLOG LIST ===== -->
+  <!-- ===== TAGS GRID ===== -->
   <main class="content">
-    <div class="card-grid card-grid--single">
-      <!-- Content loaded dynamically by list-content.js -->
+    <div id="tags-grid" class="tags-grid">
+      <!-- Tags loaded dynamically -->
     </div>
   </main>
 
@@ -92,6 +109,9 @@
   </footer>
 
   <script src="includes.js"></script>
-  <script src="list-content.js"></script>
+  <script src="js/tags-loader.js"></script>
 </body>
 </html>
+EOF
+
+echo "  ✓ Generated tags.html"
