@@ -226,6 +226,9 @@ ${jsonld}
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../css/print.css" media="print" />
+  <link rel="stylesheet" href="../css/dark-mode.css" />
+  <script src="../js/config.js"></script>
+  <script src="../js/dark-mode.js"></script>
 </head>
 <body>
 
@@ -280,6 +283,9 @@ ${body}
   <script src="../js/config.js"></script>
   <script src="../js/reading-progress.js"></script>
   <script src="../js/social-share.js"></script>
+  <script src="../js/related-posts.js"></script>
+  <script src="../js/series-navigation.js"></script>
+  <script src="../js/comments.js"></script>
 </body>
 </html>
 HTMLEOF

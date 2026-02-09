@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script src="js/config.js"></script>
 </head>
 <body>
 
@@ -40,13 +41,33 @@
   </header>
 
   <main class="content">
+    <!-- Search Section -->
     <section class="section">
+      <h2 class="section-title">Search for what you're looking for</h2>
+      <div class="search-container" style="max-width: 600px; margin: 0 auto;">
+        <div class="search-box">
+          <input type="text" id="404-search-input" class="search-input" placeholder="Search posts..." autocomplete="off" />
+          <span class="search-icon">⌕</span>
+        </div>
+        <div id="404-search-results" class="search-results-404"></div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="section">
+      <h2 class="section-title">Quick Links</h2>
       <div class="error-actions">
         <a href="ject.html" class="error-btn">Go Home</a>
         <a href="stories.html" class="error-btn">Browse Stories</a>
         <a href="blog.html" class="error-btn">Read the Blog</a>
-        <a href="contact.html" class="error-btn">Contact Me</a>
+        <a href="tags.html" class="error-btn">Browse Tags</a>
       </div>
+    </section>
+
+    <!-- Popular Content -->
+    <section class="section">
+      <h2 class="section-title">Popular Content</h2>
+      <div id="popular-content" class="card-grid"></div>
     </section>
   </main>
 
@@ -98,5 +119,6 @@
     })();
   </script>
   <script src="includes.js"></script>
+  <script src="js/enhanced-404.js"></script>
 </body>
 </html>

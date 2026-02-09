@@ -26,6 +26,7 @@ add_to_manifest() {
     local read_text="$7"
     local word_count="$8"
     local reading_time="$9"
+    local series="${10}"
 
     # Convert tabs in tags to array format
     local tags_json="["
@@ -47,9 +48,10 @@ add_to_manifest() {
     # Escape quotes and special characters for JSON
     title=$(echo "$title" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
     excerpt=$(echo "$excerpt" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
+    series=$(echo "$series" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
 
-    # Create JSON object
-    local json_obj="{\"path\":\"$filepath\",\"title\":\"$title\",\"date\":\"$date\",\"tags\":$tags_json,\"excerpt\":\"$excerpt\",\"readText\":\"$read_text\",\"wordCount\":$word_count,\"readingTime\":$reading_time}"
+    # Create JSON object with series (may be empty string)
+    local json_obj="{\"path\":\"$filepath\",\"title\":\"$title\",\"date\":\"$date\",\"tags\":$tags_json,\"excerpt\":\"$excerpt\",\"readText\":\"$read_text\",\"wordCount\":$word_count,\"readingTime\":$reading_time,\"series\":\"$series\"}"
 
     # Read current manifest
     local temp_manifest=$(cat content-manifest.json)
@@ -340,7 +342,7 @@ generate_page() {
         cards_html+=$(generate_card "$file" "$title" "$date" "$tags" "$excerpt" "$read_text" "$is_blog")
 
         # Add to JSON manifest
-        add_to_manifest "$page_type" "$file" "$title" "$date" "$tags" "$excerpt" "$read_text" "$word_count" "$reading_time"
+        add_to_manifest "$page_type" "$file" "$title" "$date" "$tags" "$excerpt" "$read_text" "$word_count" "$reading_time" "$series"
     done
 
     # Get base URL from config
@@ -378,6 +380,9 @@ ${jsonld}
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/dark-mode.css" />
+  <script src="js/config.js"></script>
+  <script src="js/dark-mode.js"></script>
 </head>
 <body>
 
