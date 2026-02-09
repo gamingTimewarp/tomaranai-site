@@ -71,7 +71,9 @@ done | sort -u | while IFS='|' read year month; do
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../css/dark-mode.css" />
   <script src="../js/config.js"></script>
+  <script src="../js/dark-mode.js"></script>
 </head>
 <body>
 

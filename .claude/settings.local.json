@@ -12,7 +12,10 @@
       "Bash(then echo \"RSS file still exists \\(as expected from previous run\\)\")",
       "Bash(else echo \"RSS file not generated\")",
       "Bash(fi)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)"
     ]
   }
 }
