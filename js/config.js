@@ -26,9 +26,9 @@ window.SiteConfig =
     "seriesNavigation": true,
     "relatedPosts": true,
     "readingProgress": false,
-    "socialShareButtons": true,
+    "socialShareButtons": false,
     "comments": false,
-    "darkMode": true,
+    "darkMode": false,
     "printStyles": true,
     "enhanced404": true
   },
