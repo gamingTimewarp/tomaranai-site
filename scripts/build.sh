@@ -11,37 +11,37 @@ echo ""
 
 # Generate JavaScript config
 echo "1. Generating JavaScript config..."
-bash generate-js-config.sh
+bash scripts/generate-js-config.sh
 echo ""
 
 # Generate content pages and manifest
 echo "2. Generating content pages..."
-bash generate-pages.sh
+bash scripts/generate-pages.sh
 echo ""
 
 # Generate robots.txt
 echo "3. Generating robots.txt..."
-bash generate-robots.sh
+bash scripts/generate-robots.sh
 echo ""
 
 # Generate sitemap.xml
 echo "4. Generating sitemap.xml..."
-bash generate-sitemap.sh
+bash scripts/generate-sitemap.sh
 echo ""
 
 # Generate RSS/Atom feeds
 echo "5. Generating RSS/Atom feeds..."
-bash generate-feeds.sh
+bash scripts/generate-feeds.sh
 echo ""
 
 # Generate archive pages
 echo "6. Generating archive pages..."
-bash generate-archives.sh
+bash scripts/generate-archives.sh
 echo ""
 
 # Generate tags page
 echo "7. Generating tags page..."
-bash generate-tags-page.sh
+bash scripts/generate-tags-page.sh
 echo ""
 
 echo "=========================================="

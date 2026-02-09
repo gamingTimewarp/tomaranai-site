@@ -211,7 +211,7 @@ cat > "${output_dir}/${filename}.html" << HTMLEOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="../redirect.js"></script>
+  <script src="../js/redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${title} — TOMARANAI PROJECT</title>
@@ -279,7 +279,7 @@ ${body}
     </div>
   </footer>
 
-  <script src="../includes.js"></script>
+  <script src="../js/includes.js"></script>
   <script src="../js/config.js"></script>
   <script src="../js/reading-progress.js"></script>
   <script src="../js/social-share.js"></script>
@@ -299,15 +299,15 @@ echo "  Rebuilding site..."
 echo "-------------------------------------------"
 
 # Run the build script
-if [ -f "build.sh" ]; then
-    bash build.sh
+if [ -f "scripts/build.sh" ]; then
+    bash scripts/build.sh
 else
-    echo "  Warning: build.sh not found."
-    echo "  Falling back to generate-pages.sh..."
-    if [ -f "generate-pages.sh" ]; then
-        bash generate-pages.sh
+    echo "  Warning: scripts/build.sh not found."
+    echo "  Falling back to scripts/generate-pages.sh..."
+    if [ -f "scripts/generate-pages.sh" ]; then
+        bash scripts/generate-pages.sh
     else
-        echo "  Warning: generate-pages.sh not found."
+        echo "  Warning: scripts/generate-pages.sh not found."
         echo "  You may need to manually update the list pages."
     fi
 fi

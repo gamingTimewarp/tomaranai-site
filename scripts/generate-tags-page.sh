@@ -34,7 +34,7 @@ cat > tags.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="redirect.js"></script>
+  <script src="js/redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 EOF
@@ -108,7 +108,7 @@ cat >> tags.html << 'EOF'
     </div>
   </footer>
 
-  <script src="includes.js"></script>
+  <script src="js/includes.js"></script>
   <script src="js/tags-loader.js"></script>
 </body>
 </html>

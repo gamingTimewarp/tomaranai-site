@@ -62,7 +62,7 @@ done | sort -u | while IFS='|' read year month; do
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="../redirect.js"></script>
+  <script src="../js/redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${page_title} Archives — ${SITE_TITLE}</title>
@@ -130,7 +130,7 @@ done | sort -u | while IFS='|' read year month; do
     </div>
   </footer>
 
-  <script src="../includes.js"></script>
+  <script src="../js/includes.js"></script>
   <script src="../js/archive-loader.js"></script>
 </body>
 </html>

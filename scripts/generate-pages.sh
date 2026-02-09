@@ -366,7 +366,7 @@ generate_page() {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="redirect.js"></script>
+  <script src="js/redirect.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${page_title} — TOMARANAI PROJECT</title>
@@ -443,8 +443,8 @@ ${jsonld}
     </div>
   </footer>
 
-  <script src="includes.js"></script>
-  <script src="list-content.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/list-content.js"></script>
 </body>
 </html>
 PAGE_EOF
