@@ -34,7 +34,11 @@
   function findSectionByTitle(title) {
     var headers = document.querySelectorAll('.section-title');
     for (var i = 0; i < headers.length; i++) {
-      if (headers[i].textContent.trim() === title) {
+      // Get text content, excluding the collapse button
+      var text = headers[i].textContent.trim();
+      // Remove the collapse button symbol (▼ or ▶)
+      text = text.replace(/^[▼▶]\s*/, '');
+      if (text === title) {
         return headers[i].closest('.section');
       }
     }
