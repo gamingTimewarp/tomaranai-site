@@ -28,6 +28,7 @@ window.SiteConfig =
     "readingProgress": false,
     "socialShareButtons": false,
     "comments": false,
+    "postNavigation": true,
     "darkMode": false,
     "printStyles": true,
     "enhanced404": true
@@ -50,9 +51,9 @@ window.SiteConfig =
   },
   "comments": {
     "provider": "giscus",
-    "repo": "",
+    "repo": "gamingTimewarp/tomaranai-site",
     "repoId": "",
-    "category": "",
+    "category": "Announcements",
     "categoryId": "",
     "mapping": "pathname",
     "reactionsEnabled": true,

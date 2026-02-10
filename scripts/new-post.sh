@@ -285,6 +285,7 @@ ${body}
   <script src="../js/social-share.js"></script>
   <script src="../js/related-posts.js"></script>
   <script src="../js/series-navigation.js"></script>
+  <script src="../js/post-navigation.js"></script>
   <script src="../js/comments.js"></script>
 </body>
 </html>
