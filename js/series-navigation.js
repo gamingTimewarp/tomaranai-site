@@ -46,7 +46,7 @@
       // Find current post index
       let currentIndex = -1;
       for (let i = 0; i < seriesPosts.length; i++) {
-        if (currentPath.includes(seriesPosts[i].path)) {
+        if (currentPath.includes(seriesPosts[i].path.replace('.html', ''))) {
           currentIndex = i;
           break;
         }
@@ -69,7 +69,7 @@
         '<div class="series-nav-links">';
 
       if (prevPost) {
-        navHTML += '<a href="../' + prevPost.path + '" class="series-nav-link series-nav-prev">' +
+        navHTML += '<a href="../' + prevPost.path.replace('.html', '') + '" class="series-nav-link series-nav-prev">' +
           '<span class="series-nav-label">← Previous</span>' +
           '<span class="series-nav-title">' + prevPost.title + '</span>' +
           '</a>';
@@ -81,7 +81,7 @@
       }
 
       if (nextPost) {
-        navHTML += '<a href="../' + nextPost.path + '" class="series-nav-link series-nav-next">' +
+        navHTML += '<a href="../' + nextPost.path.replace('.html', '') + '" class="series-nav-link series-nav-next">' +
           '<span class="series-nav-label">Next →</span>' +
           '<span class="series-nav-title">' + nextPost.title + '</span>' +
           '</a>';

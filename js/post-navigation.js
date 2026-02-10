@@ -43,10 +43,11 @@
       // Sort chronologically oldest → newest
       posts.sort(function(a, b) { return parseDate(a.date) - parseDate(b.date); });
 
-      // Find current post
+      // Find current post — strip .html since redirect.js rewrites URLs to extensionless
       var currentIndex = -1;
       for (var i = 0; i < posts.length; i++) {
-        if (path.indexOf(posts[i].path.replace(contentType + '/', '')) !== -1) {
+        var postSlug = posts[i].path.replace(contentType + '/', '').replace('.html', '');
+        if (path.indexOf(postSlug) !== -1) {
           currentIndex = i;
           break;
         }
@@ -69,7 +70,7 @@
       var html = '<div class="post-nav-links">';
 
       if (prevPost) {
-        html += '<a href="../' + prevPost.path + '" class="post-nav-link post-nav-prev">' +
+        html += '<a href="../' + prevPost.path.replace('.html', '') + '" class="post-nav-link post-nav-prev">' +
           '<span class="post-nav-label">← Older ' + sectionLabel + '</span>' +
           '<span class="post-nav-title">' + prevPost.title + '</span>' +
           '</a>';
@@ -78,7 +79,7 @@
       }
 
       if (nextPost) {
-        html += '<a href="../' + nextPost.path + '" class="post-nav-link post-nav-next">' +
+        html += '<a href="../' + nextPost.path.replace('.html', '') + '" class="post-nav-link post-nav-next">' +
           '<span class="post-nav-label">Newer ' + sectionLabel + ' →</span>' +
           '<span class="post-nav-title">' + nextPost.title + '</span>' +
           '</a>';
