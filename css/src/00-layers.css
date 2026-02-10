@@ -1,0 +1,5 @@
+/* ===== CASCADE LAYER ORDER =====
+   Declared once; later layers win same-specificity conflicts.
+   DO NOT reorder — utilities must beat components must beat layout.
+   ============================================================= */
+@layer base, layout, components, content, forms, utilities;

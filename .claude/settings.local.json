@@ -15,7 +15,8 @@
       "Bash(ls:*)",
       "Bash(git checkout:*)",
       "Bash(git merge:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(sort -u grep -oh '\\\\.[a-zA-Z][a-zA-Z0-9_-]*' style.css)"
     ]
   }
 }

@@ -9,6 +9,11 @@ echo "  TOMARANAI PROJECT - Build System"
 echo "=========================================="
 echo ""
 
+# Generate CSS from source modules
+echo "0. Generating style.css from CSS source modules..."
+bash scripts/generate-css.sh
+echo ""
+
 # Generate JavaScript config
 echo "1. Generating JavaScript config..."
 bash scripts/generate-js-config.sh
@@ -55,6 +60,7 @@ echo "  - Archive pages: $(ls archives/*.html 2>/dev/null | wc -l)"
 echo "  - Sitemap URLs: $(grep -c '<loc>' sitemap.xml 2>/dev/null || echo 0)"
 echo "  - RSS items: $(grep -c '<item>' feed.rss 2>/dev/null || echo 0)"
 echo "  - Atom entries: $(grep -c '<entry>' feed.atom 2>/dev/null || echo 0)"
-echo "  - JavaScript config: js/config.js"
+echo "  - CSS stylesheet: style.css (generated from css/src/)
+  - JavaScript config: js/config.js"
 echo "  - Tags page: tags.html"
 echo "=========================================="
