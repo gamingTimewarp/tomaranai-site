@@ -56,9 +56,9 @@
 
     return '<article class="related-post-card">' +
       '<div class="related-post-tags">' + tagsHTML + '</div>' +
-      '<h4 class="related-post-title"><a href="' + basePath + item.path + '">' + item.title + '</a></h4>' +
+      '<h4 class="related-post-title"><a href="' + basePath + item.path.replace('.html', '') + '">' + item.title + '</a></h4>' +
       '<p class="related-post-excerpt">' + item.excerpt + '</p>' +
-      '<a href="' + basePath + item.path + '" class="related-post-read">' + item.readText + '</a>' +
+      '<a href="' + basePath + item.path.replace('.html', '') + '" class="related-post-read">' + item.readText + '</a>' +
       '</article>';
   }
 
@@ -80,9 +80,10 @@
       ];
 
       // Filter out current page and calculate scores
+      // Strip .html before comparing since redirect.js rewrites URLs to extensionless
       const scored = allContent
         .filter(function(item) {
-          return !currentPath.includes(item.path);
+          return !currentPath.includes(item.path.replace('.html', ''));
         })
         .map(function(item) {
           return {
