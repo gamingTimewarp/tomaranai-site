@@ -30,9 +30,8 @@
       <li><a href="ject.html">Home</a></li>
       <li><a href="stories.html">Stories</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="projects.html">Projects</a></li> 
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html"  class="active">Hire Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="portfolio.html" class="active">Hire Me</a></li>
     </ul>
   </nav>
 
@@ -48,6 +47,7 @@
     <div class="tab-bar">
       <button class="tab-btn tab-btn--active" onclick="switchTab('about-me', this)">About Me</button>
       <button class="tab-btn" onclick="switchTab('about-project', this)">About Tomaranai Project</button>
+      <button class="tab-btn" onclick="switchTab('contact', this)">Leave Feedback</button>
     </div>
 
     <div id="about-me" class="tab-panel tab-panel--active">
@@ -131,6 +131,56 @@
           <p>Come for silly sci-fi and science fantasy stories about silly characters, stay for deep explorations into the human condition. Every story is free to read on this site.</p>
         </div>
       </section>
+    </div>
+
+    <div id="contact" class="tab-panel">
+
+      <!-- ===== BOOK SECTION ===== -->
+      <section class="section book-section">
+        <div class="section-header">
+          <h2 class="section-title">My Book</h2>
+        </div>
+        <div class="book-card">
+          <div class="book-info">
+            <h3 class="book-title">She Watched the Roses Burn</h3>
+            <p class="book-desc">A silly mystery story. Available now in paperback or on Kindle.</p>
+            <a href="https://www.amazon.com/dp/B0DXKGQQSS" target="_blank" class="book-buy-btn">Buy on Amazon →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FEEDBACK FORM ===== -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Leave Feedback</h2>
+        </div>
+        <form class="feedback-form" action="https://formspree.io/f/xwvqkdng" method="POST">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="What should I call you?" />
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email <span class="form-optional">(optional)</span></label>
+            <input type="email" id="contact-email" name="email" placeholder="In case I want to write back" />
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">About</label>
+            <select id="contact-subject" name="subject">
+              <option value="" disabled selected>What's this regarding?</option>
+              <option value="story">A Story</option>
+              <option value="blog">A Blog Post</option>
+              <option value="book">The Book</option>
+              <option value="other">Something Else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Say what's on your mind..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send it →</button>
+        </form>
+      </section>
+
     </div>
 
   </main>

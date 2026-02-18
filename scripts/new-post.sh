@@ -240,7 +240,7 @@ ${jsonld}
       <li><a href="../stories.html">Stories</a></li>
       <li><a href="../blog.html">Blog</a></li>
       <li><a href="../projects.html">Projects</a></li>
-      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../portfolio.html">Hire Me</a></li>
     </ul>
   </nav>
 
@@ -267,7 +267,7 @@ ${body}
     <!-- Feedback CTA -->
     <div class="story-feedback">
       <p>Enjoyed this one? Hated it? Let me know.</p>
-      <a href="../contact.html" class="story-feedback-link">Leave feedback →</a>
+      <a href="../portfolio.html" class="story-feedback-link">Leave feedback →</a>
     </div>
 
   </article>
