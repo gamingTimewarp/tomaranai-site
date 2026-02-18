@@ -401,7 +401,7 @@ ${jsonld}
       <li><a href="stories.html"$([ "$page_type" == "stories" ] && echo ' class="active"')>Stories</a></li>
       <li><a href="blog.html"$([ "$page_type" == "blog" ] && echo ' class="active"')>Blog</a></li>
       <li><a href="projects.html"$([ "$page_type" == "projects" ] && echo ' class="active"')>Projects</a></li>
-      <li><a href="portfolio.html">Hire Me</a></li>
+      <li><a href="portfolio.html">About</a></li>
     </ul>
   </nav>
 

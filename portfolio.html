@@ -31,7 +31,7 @@
       <li><a href="stories.html">Stories</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="portfolio.html" class="active">Hire Me</a></li>
+      <li><a href="portfolio.html" class="active">About</a></li>
     </ul>
   </nav>
 
@@ -45,12 +45,12 @@
   <main class="content">
 
     <div class="tab-bar">
-      <button class="tab-btn tab-btn--active" onclick="switchTab('about-me', this)">About Me</button>
-      <button class="tab-btn" onclick="switchTab('about-project', this)">About Tomaranai Project</button>
+      <button class="tab-btn tab-btn--active" onclick="switchTab('about-project', this)">About Tomaranai Project</button>
       <button class="tab-btn" onclick="switchTab('contact', this)">Leave Feedback</button>
+      <button class="tab-btn" onclick="switchTab('about-me', this)">Commissions</button>
     </div>
 
-    <div id="about-me" class="tab-panel tab-panel--active">
+    <div id="about-me" class="tab-panel">
 
       <!-- ===== BOOK SECTION ===== -->
       <section class="section book-section">
@@ -108,7 +108,7 @@
 
     </div>
 
-    <div id="about-project" class="tab-panel">
+    <div id="about-project" class="tab-panel tab-panel--active">
       <section class="section">
         <div class="section-header">
           <h2 class="section-title">The <ruby>止まらない<rt>TOMARANAI</rt></ruby>Project</h2>

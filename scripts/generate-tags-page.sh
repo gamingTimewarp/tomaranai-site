@@ -68,7 +68,7 @@ cat >> tags.html << 'EOF'
       <li><a href="stories.html">Stories</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="portfolio.html">Hire Me</a></li>
+      <li><a href="portfolio.html">About</a></li>
     </ul>
   </nav>
 
