@@ -1,7 +1,7 @@
 /* =====================================================================
    style.css — DO NOT EDIT DIRECTLY
    Generated from css/src/ by scripts/generate-css.sh
-   Last built: 2026-02-18 12:01:00
+   Last built: 2026-02-18 12:10:30
    To modify styles, edit the files in css/src/ and run:
      bash scripts/build.sh
    ===================================================================== */
@@ -763,6 +763,32 @@ rt {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+/* ===== PORTFOLIO WORK CARDS ===== */
+.card-learned {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.card-learned-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.card-learned ul {
+  padding-left: 16px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.card-learned li {
+  margin-bottom: 4px;
 }
 
 } /* end @layer components */
