@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../js/redirect.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riichi Companion — TOMARANAI PROJECT</title>
+  <meta name="description" content="A mobile-first Progressive Web App for Riichi Mahjong players. Hand analyzer, game tracker, works offline." />
+  <link rel="canonical" href="https://tomaranai.pro/projects/project-riichi-companion.html" />
+  <meta property="og:title" content="Riichi Companion — TOMARANAI PROJECT" />
+  <meta property="og:description" content="A mobile-first Progressive Web App for Riichi Mahjong players. Hand analyzer, game tracker, works offline." />
+  <meta property="og:url" content="https://tomaranai.pro/projects/project-riichi-companion.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tomaranai.pro/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Riichi Companion — TOMARANAI PROJECT" />
+  <meta name="twitter:description" content="A mobile-first Progressive Web App for Riichi Mahjong players. Hand analyzer, game tracker, works offline." />
+  <meta name="twitter:image" content="https://tomaranai.pro/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .app-embed {
+      margin: 2rem auto;
+      max-width: 420px;
+    }
+    .app-embed-frame {
+      width: 100%;
+      height: 750px;
+      border: none;
+      border-radius: 0.5rem;
+      display: block;
+    }
+    .app-embed-hint {
+      text-align: center;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      color: var(--color-muted, #888);
+      margin-top: 0.5rem;
+    }
+    .app-open-link {
+      display: block;
+      text-align: center;
+      margin-top: 0.75rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.85rem;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+    .feature-list li {
+      padding: 0.2rem 0;
+      font-size: 0.95rem;
+    }
+    .feature-list li::before {
+      content: "— ";
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="../ject.html" class="nav-logo"><ruby>
+            止まらない<rt>TOMARANAI</rt>
+        </ruby> PROJECT</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../ject.html">Home</a></li>
+      <li><a href="../stories.html">Stories</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../portfolio.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PROJECT POST ===== -->
+  <article class="story-post">
+    <header class="story-header">
+      <a href="../projects.html" class="story-back">← Back to Projects</a>
+      <span class="card-tag">Tools</span>
+      <h1 class="story-title">Riichi Companion</h1>
+      <div class="story-byline">
+        <span class="story-date">March 2026</span>
+      </div>
+    </header>
+
+    <div class="story-body">
+
+      <p>A mobile-first Progressive Web App for Riichi Mahjong players. Installable from the browser, works offline, no account required.</p>
+
+      <p><strong>Hand Analyzer</strong></p>
+      <ul class="feature-list">
+        <li>Visual tile picker or text notation (<code>123m456p789s11z</code>)</li>
+        <li>Shanten count and tenpai waits with remaining tile count and wait type</li>
+        <li>Score calculation: han, fu, points, fu breakdown, yaku list</li>
+        <li>Furiten detection and discard tracker</li>
+        <li>Learning mode to hide waits until you're ready</li>
+      </ul>
+
+      <p><strong>Game Tracker</strong></p>
+      <ul class="feature-list">
+        <li>3-player (Sanma) and 4-player (Yonma), Hanchan and Tonpuusen</li>
+        <li>EMA ruleset — open tanyao, uma, tenpai payments, chombo</li>
+        <li>Dice rollers, riichi pool tracking, snapshot undo</li>
+        <li>End-of-game scores, placement, uma, score history chart, JSON export</li>
+      </ul>
+
+      <p>
+        Source code on <a href="https://github.com/gamingTimewarp/riichi-companion" target="_blank" rel="noopener">GitHub</a>.
+        Open the full app at <a href="../riichi-companion/">tomaranai.pro/riichi-companion/</a> to install it as a PWA from your browser.
+      </p>
+
+    </div>
+
+    <!-- ===== EMBEDDED APP ===== -->
+    <div class="app-embed">
+      <iframe
+        src="../riichi-companion/"
+        class="app-embed-frame"
+        title="Riichi Companion app"
+        loading="lazy"
+        allow="fullscreen"
+      ></iframe>
+      <p class="app-embed-hint">Mobile-sized preview — best used on phone or tablet.</p>
+      <a href="../riichi-companion/" class="app-open-link">Open full screen →</a>
+    </div>
+
+    <!-- Feedback CTA -->
+    <div class="story-feedback">
+      <p>Feedback on the app?</p>
+      <a href="../portfolio.html" class="story-feedback-link">Let me know →</a>
+    </div>
+
+  </article>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-newsletter">
+      <span class="footer-newsletter-label">Subscribe to updates</span>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/gamingTimewarp"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/gamingTimewarp', 'popupwindow')"
+        class="newsletter-form"
+      >
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">© 2026 @gamingTimewarp. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
+      <div class="footer-links">
+        <a href="https://github.com/gamingTimewarp" target="_blank">GitHub</a>
+        <a href="mailto:gamingTimewarp@tomaranai.pro">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/includes.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/post-navigation.js"></script>
+</body>
+</html>

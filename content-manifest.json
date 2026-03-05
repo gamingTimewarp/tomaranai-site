@@ -149,6 +149,19 @@
   ],
   "projects": [
     {
+      "path": "projects/project-riichi-companion.html",
+      "title": "Riichi Companion",
+      "date": "March 2026",
+      "tags": [
+        "Tools"
+      ],
+      "excerpt": "A mobile-first Progressive Web App for Riichi Mahjong. Hand analyzer with shanten, waits, and scoring. Game tracker for 3- and 4-player with EMA rules. Installable, works offline.",
+      "readText": "Open app →",
+      "wordCount": 120,
+      "readingTime": 1,
+      "series": ""
+    },
+    {
       "path": "projects/project-inpeikaguya-landing.html",
       "title": "The Five Treasures of Inpei Kaguya",
       "date": "November 2022",
