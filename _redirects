@@ -1,5 +1,8 @@
 # Redirect .html URLs to extensionless versions
 /*.html  /:splat  301!
 
+# SPA fallback for Riichi Companion routes
+/riichi-companion/*  /riichi-companion/index.html  200
+
 # 404 page
 /*  /404.html  404
