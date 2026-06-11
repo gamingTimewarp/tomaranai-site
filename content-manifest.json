@@ -149,6 +149,19 @@
   ],
   "projects": [
     {
+      "path": "projects/project-grimoire-atziluth.html",
+      "title": "Grimoire Atziluth",
+      "date": "March 2026",
+      "tags": [
+        "Tools"
+      ],
+      "excerpt": "An offline-first esoteric reference and divination app for Linux, Windows, and Android. Tarot, runes, astrology, Qabalah, spaced repetition study — no cloud, no account, no tracking.",
+      "readText": "View project →",
+      "wordCount": 350,
+      "readingTime": 2,
+      "series": ""
+    },
+    {
       "path": "projects/project-riichi-companion.html",
       "title": "Riichi Companion",
       "date": "March 2026",

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../js/redirect.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grimoire Atziluth — TOMARANAI PROJECT</title>
+  <meta name="description" content="An offline-first esoteric reference and divination app for desktop and Android. Tarot, runes, astrology, Qabalah, spaced repetition study — no cloud, no account, no tracking." />
+  <link rel="canonical" href="https://tomaranai.pro/projects/project-grimoire-atziluth.html" />
+  <meta property="og:title" content="Grimoire Atziluth — TOMARANAI PROJECT" />
+  <meta property="og:description" content="An offline-first esoteric reference and divination app for desktop and Android. Tarot, runes, astrology, Qabalah, spaced repetition study — no cloud, no account, no tracking." />
+  <meta property="og:url" content="https://tomaranai.pro/projects/project-grimoire-atziluth.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tomaranai.pro/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Grimoire Atziluth — TOMARANAI PROJECT" />
+  <meta name="twitter:description" content="An offline-first esoteric reference and divination app for desktop and Android. Tarot, runes, astrology, Qabalah, spaced repetition study — no cloud, no account, no tracking." />
+  <meta name="twitter:image" content="https://tomaranai.pro/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+    .feature-table th {
+      text-align: left;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      color: var(--color-muted, #888);
+    }
+    .feature-table td {
+      padding: 0.5rem 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .feature-table td:first-child {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: var(--color-muted, #888);
+      padding-right: 1.25rem;
+    }
+    .download-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.35rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: border-color 0.15s, opacity 0.15s;
+    }
+    .download-btn:hover {
+      border-color: rgba(255,255,255,0.45);
+      text-decoration: none;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .feature-list li {
+      padding: 0.2rem 0;
+      font-size: 0.95rem;
+    }
+    .feature-list li::before {
+      content: "— ";
+      opacity: 0.5;
+    }
+    .deck-list {
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+    .info-note {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      opacity: 0.6;
+      margin-top: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <a href="../ject.html" class="nav-logo"><ruby>
+            止まらない<rt>TOMARANAI</rt>
+        </ruby> PROJECT</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../ject.html">Home</a></li>
+      <li><a href="../stories.html">Stories</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../portfolio.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PROJECT POST ===== -->
+  <article class="story-post">
+    <header class="story-header">
+      <a href="../projects.html" class="story-back">← Back to Projects</a>
+      <span class="card-tag">Tools</span>
+      <h1 class="story-title">Grimoire Atziluth</h1>
+      <div class="story-byline">
+        <span class="story-date">March 2026 · v1.0.0</span>
+      </div>
+    </header>
+
+    <div class="story-body">
+
+      <p>
+        An offline-first esoteric reference and divination app for Linux, Windows, and Android.
+        It combines an interactive reading journal, a comprehensive occult knowledge base,
+        live astrological calculations, and spaced-repetition study tools — all running entirely
+        on-device with no cloud dependency, no account required, and no data leaving your device.
+      </p>
+
+      <p>
+        The name comes from <em>Atziluth</em> — the highest of the Four Worlds in Qabalah, the
+        world of pure emanation.
+      </p>
+
+      <div class="download-row">
+        <a href="https://github.com/gamingTimewarp/Grimoire-Atziluth/releases/latest" class="download-btn" target="_blank" rel="noopener">
+          ↓ Download (Linux · Windows · Android)
+        </a>
+        <a href="https://github.com/gamingTimewarp/Grimoire-Atziluth" class="download-btn" target="_blank" rel="noopener">
+          ⌥ Source on GitHub
+        </a>
+      </div>
+
+      <p class="info-note">Linux: .AppImage (portable) or .deb / .rpm &nbsp;·&nbsp; Windows: .exe installer or .msi &nbsp;·&nbsp; Android: universal .apk (sideload)</p>
+
+      <br>
+
+      <p><strong>Divination &amp; Readings</strong></p>
+      <ul class="feature-list">
+        <li>11 built-in decks — Rider-Waite-Smith, Thoth, Tarot de Marseille, Etteilla, Elder Futhark Runes, Lenormand, Ogham, Geomancy, Mahjong Oracle, Playing Cards, Tea Leaf Symbols</li>
+        <li>14 spreads including Celtic Cross, Tree of Life, Grand Tableau, Zodiac Year, and free-form drawing</li>
+        <li>Reversals, clarifier cards, per-position keyword panel</li>
+        <li>Intention/question field stored with each reading</li>
+        <li>Astrological sky snapshot captured automatically at the moment of every save</li>
+        <li>Export any reading as Markdown or a PNG image</li>
+      </ul>
+
+      <p><strong>Journal</strong></p>
+      <ul class="feature-list">
+        <li>Combined reading + journal timeline, reverse-chronological with filter search</li>
+        <li>Rich text editor — headings, bold, italic, lists, blockquotes</li>
+        <li>Entity links — tag any reference entity to a reading or entry</li>
+        <li>Soft-delete with 5-second undo; spread visualisations inline in the expanded view</li>
+      </ul>
+
+      <p><strong>Reference</strong></p>
+      <ul class="feature-list">
+        <li>24+ entity types, 35+ browse categories, real-time full-text search</li>
+        <li>Multi-tradition attributions — toggle which esoteric frameworks are active</li>
+        <li>Personal annotations stored locally on each entity page</li>
+        <li>Bookmarks, recently viewed strip, random entity navigation</li>
+      </ul>
+
+      <p><strong>Astrology</strong></p>
+      <ul class="feature-list">
+        <li>Natal charts with SVG wheel, planet/house table, aspect table, mutual receptions, Arabic parts</li>
+        <li>Current sky panel with 5-minute updates and transit-to-natal aspects</li>
+        <li>Astronomical calendar — ingresses, retrograde stations, eclipses, Moon phases</li>
+        <li>Tropical, Sidereal, and IAU 13-sign modes; 6 house systems; Chiron + major asteroids</li>
+        <li>All calculations offline via <a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener">astronomy-engine</a> — no internet required</li>
+      </ul>
+
+      <p><strong>Qabalah</strong></p>
+      <ul class="feature-list">
+        <li>Interactive SVG Tree of Life (Queen Scale colours) and Nightside Tree (Qliphoth)</li>
+        <li>Gematria calculator with Hebrew letter input and real-time total</li>
+        <li>Numerology calculator — Expression, Soul Urge, Personality, Life Path — Pythagorean and Chaldean</li>
+      </ul>
+
+      <p><strong>Study</strong></p>
+      <ul class="feature-list">
+        <li>SM-2 spaced repetition across any entity type</li>
+        <li>4 question modes: flashcard, multiple choice, fill-in-blank, image recognition</li>
+        <li>14-day accuracy sparkline, streak tracking, per-type progress breakdown</li>
+      </ul>
+
+      <p><strong>Customisation</strong></p>
+      <ul class="feature-list">
+        <li>7 theme presets + full colour token editor (18 tokens, live preview)</li>
+        <li>6 accessibility modes — colour vision, dyslexia font, reduced motion, card captions</li>
+        <li>Custom entities, spreads, decks, and traditions</li>
+        <li>Custom CSS injection</li>
+      </ul>
+
+      <br>
+
+      <p><strong>Built with</strong></p>
+
+      <table class="feature-table">
+        <thead>
+          <tr><th>Layer</th><th>Technology</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Platform</td><td>Tauri 2.x (Rust + WebView)</td></tr>
+          <tr><td>Frontend</td><td>React 19, TypeScript, Vite</td></tr>
+          <tr><td>State</td><td>Zustand v5, TanStack Router v1</td></tr>
+          <tr><td>Persistence</td><td>SQLite via @tauri-apps/plugin-sql</td></tr>
+          <tr><td>Astro engine</td><td>astronomy-engine (Don Cross, MIT)</td></tr>
+          <tr><td>Tests</td><td>Vitest — 123 unit tests in grimoire-core</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Source code: <a href="https://github.com/gamingTimewarp/Grimoire-Atziluth" target="_blank" rel="noopener">github.com/gamingTimewarp/Grimoire-Atziluth</a> (MIT licence).<br>
+        Bundled artwork used under open licences — see <strong>Settings → Credits</strong> in the app for full attributions.<br>
+        <a href="../grimoire-atziluth-privacy.html">Privacy policy</a> — fully offline, no data collection.
+      </p>
+
+    </div>
+
+    <!-- Feedback CTA -->
+    <div class="story-feedback">
+      <p>Using Grimoire Atziluth?</p>
+      <a href="../portfolio.html" class="story-feedback-link">Send feedback →</a>
+    </div>
+
+  </article>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-newsletter">
+      <span class="footer-newsletter-label">Subscribe to updates</span>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/gamingTimewarp"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/gamingTimewarp', 'popupwindow')"
+        class="newsletter-form"
+      >
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">© 2026 @gamingTimewarp. Built with HTML, CSS, and an unhealthy amount of stimulants.</p>
+      <div class="footer-links">
+        <a href="https://github.com/gamingTimewarp" target="_blank">GitHub</a>
+        <a href="mailto:gamingTimewarp@tomaranai.pro">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/includes.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/post-navigation.js"></script>
+</body>
+</html>
