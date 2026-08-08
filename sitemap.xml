@@ -92,6 +92,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tomaranai.pro/projects/project-grimoire-atziluth.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tomaranai.pro/projects/project-riichi-companion.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tomaranai.pro/projects/project-inpeikaguya-landing.html</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -100,6 +112,12 @@
   <url>
     <loc>https://tomaranai.pro/projects/project-CER-landing.html</loc>
     <lastmod>Soon-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tomaranai.pro/projects/project-tarot-major-arcana.html</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

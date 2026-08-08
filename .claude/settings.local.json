@@ -16,7 +16,12 @@
       "Bash(git checkout:*)",
       "Bash(git merge:*)",
       "Bash(git push:*)",
-      "Bash(sort -u grep -oh '\\\\.[a-zA-Z][a-zA-Z0-9_-]*' style.css)"
+      "Bash(sort -u grep -oh '\\\\.[a-zA-Z][a-zA-Z0-9_-]*' style.css)",
+      "Read(//home/awright/Documents/**)",
+      "Bash(mkdir -p /tmp/claude-1000/-home-awright-tomaranai-site/cfa8ac01-5ed6-420a-8d9b-7d8c265649f2/scratchpad/odt_extract)",
+      "Bash(unzip -o \"/home/awright/Documents/tarot_publication_major_arcana.odt\" -d extracted)",
+      "Bash(mkdir -p /home/awright/tomaranai-site/projects/downloads)",
+      "Bash(cp \"/home/awright/Documents/tarot_publication_major_arcana.odt\" \"/home/awright/tomaranai-site/projects/downloads/tarot-major-arcana-eschatological-archetypes.odt\")"
     ]
   }
 }
