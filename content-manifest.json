@@ -9,61 +9,9 @@
       ],
       "excerpt": "My name is Doctor Fancyboots. If you've heard of me, you probably know me as a field agent for the Bureau of Narrative Compliance in the capital city of Chin'llyein. However, as a wizard, I am occasio...",
       "readText": "Read story →",
-      "wordCount": 3388,
+      "wordCount": 3344,
       "readingTime": 17,
       "series": "Doctor Fancyboots"
-    },
-    {
-      "path": "stories/story-postdicament.html",
-      "title": "The Predicament, Dicament, and Postdicament of Doctor Fancyboots",
-      "date": "March 2024",
-      "tags": [
-        "Sci-Fi"
-      ],
-      "excerpt": "Dr. Fancyboots had quite many problems. This was not his first predicament, nor his last. This streak of problems began when he was born-- Dr. Fancyboots, like most people, was of course born his whol...",
-      "readText": "Read story →",
-      "wordCount": 1485,
-      "readingTime": 8,
-      "series": "Doctor Fancyboots"
-    },
-    {
-      "path": "stories/story-pond-trip.html",
-      "title": "A Field Trip to a Pond",
-      "date": "February 2023",
-      "tags": [
-        "Sci-Fantasy"
-      ],
-      "excerpt": "Had a crazy magical field trip of your own? I'd love to hear.",
-      "readText": "Read story →",
-      "wordCount": 1435,
-      "readingTime": 8,
-      "series": "Merry & Becky"
-    },
-    {
-      "path": "stories/story-end.html",
-      "title": "end.",
-      "date": "November 2018",
-      "tags": [
-        "Philosophy"
-      ],
-      "excerpt": "“Kid, you’ve got the power to end the world. Use it the best that you can. For all of us.”",
-      "readText": "Read story →",
-      "wordCount": 1111,
-      "readingTime": 6,
-      "series": ""
-    },
-    {
-      "path": "stories/story-cucumber-haiku.html",
-      "title": "One Hundred Haiku on Cucumber Water",
-      "date": "January 2023",
-      "tags": [
-        "Sci-Fi"
-      ],
-      "excerpt": "I. Cucumber Water, The absence of a fleeting thought. Tastes of what once was.",
-      "readText": "Read story →",
-      "wordCount": 1400,
-      "readingTime": 7,
-      "series": "Poetry"
     },
     {
       "path": "stories/story-antedicament.html",
@@ -74,62 +22,75 @@
       ],
       "excerpt": "My name is Sy DuCharacter. This story begins as I arrived to work at the famous gyro shop, Forgotten Gyros… It was the day that the Inspector of Cleanliness, referred to in the biz as the I.C., was go...",
       "readText": "Read story →",
-      "wordCount": 4528,
+      "wordCount": 4485,
       "readingTime": 23,
       "series": "Doctor Fancyboots"
+    },
+    {
+      "path": "stories/story-postdicament.html",
+      "title": "The Predicament, Dicament, and Postdicament of Doctor Fancyboots",
+      "date": "March 2024",
+      "tags": [
+        "Sci-Fi"
+      ],
+      "excerpt": "“Good Riddance, Doctor Fancyboots!” cried out the clerk as Dr. Fancyboots left the mall. “Thank you! You as well!” the good doctor called out after him. Doctor Thomas Wayne Grimfellelthydorgurlenbotte...",
+      "readText": "Read story →",
+      "wordCount": 1438,
+      "readingTime": 8,
+      "series": "Doctor Fancyboots"
+    },
+    {
+      "path": "stories/story-pond-trip.html",
+      "title": "A Field Trip to a Pond",
+      "date": "February 2023",
+      "tags": [
+        "Sci-Fantasy"
+      ],
+      "excerpt": "﻿“Do you think it’ll turn into a prince if I kiss it?” queried Merry. “Even if I knew it would, I still wouldn’t kiss it,” responded Renko. “I wouldn’t give up my dignity for wealth.” The twins were o...",
+      "readText": "Read story →",
+      "wordCount": 1392,
+      "readingTime": 7,
+      "series": "Merry & Becky"
+    },
+    {
+      "path": "stories/story-cucumber-haiku.html",
+      "title": "One Hundred Haiku on Cucumber Water",
+      "date": "January 2023",
+      "tags": [
+        "Sci-Fi"
+      ],
+      "excerpt": "I. Cucumber Water, The absence of a fleeting thought. Tastes of what once was.",
+      "readText": "Read story →",
+      "wordCount": 1358,
+      "readingTime": 7,
+      "series": "Poetry"
+    },
+    {
+      "path": "stories/story-end.html",
+      "title": "end.",
+      "date": "November 2018",
+      "tags": [
+        "Philosophy"
+      ],
+      "excerpt": "It was a rainy day. Not so much a rainy day in terms of weather, although it had been sprinkling on and off for the past few hours. More of a rainy day in terms of emotion. The kind everybody has, but...",
+      "readText": "Read story →",
+      "wordCount": 1063,
+      "readingTime": 6,
+      "series": ""
     }
   ],
   "blog": [
     {
-      "path": "blog/whois-fancyboots.html",
-      "title": "Who is Doctor Fancyboots?",
-      "date": "January 2026",
+      "path": "blog/blog-riichi.html",
+      "title": "Riichi-ing New Heights with Claude Code",
+      "date": "March 2026",
       "tags": [
-        "History and Trivia"
+        "Development"
       ],
-      "excerpt": "If you've been messing around on this website, you've probably wondered at some point who this Doctor Fancyboots guy who keeps showing up is. Here's the rundown.",
+      "excerpt": "Combining the risk/reward element of poker, the hand-building and discarding strategy of rummy, with the tactile appeal and beautiful art found in games like hanafuda, it’s truly unique. Every tile ha...",
       "readText": "Read post →",
-      "wordCount": 577,
-      "readingTime": 3,
-      "series": ""
-    },
-    {
-      "path": "blog/blog-omega-doublesharp.html",
-      "title": "Ω𝄪",
-      "date": "November 2021",
-      "tags": [
-        "Satire"
-      ],
-      "excerpt": "Ω𝄪א Assembly has zero-byte opcodes, as Ω𝄪 only makes use of one operation. It also has only one register, which the output is automatically stored to, and so does not need memory addresses. The output...",
-      "readText": "Read post →",
-      "wordCount": 735,
-      "readingTime": 4,
-      "series": ""
-    },
-    {
-      "path": "blog/blog-internet-mole-day.html",
-      "title": "Internet Mole Day is Coming",
-      "date": "October 2025",
-      "tags": [
-        "Fun Facts"
-      ],
-      "excerpt": "After doing some random napkin maths, I came to a conclusion I found interesting and thought you all would appreciate. Through some intense googling, estimates for the size of all data on the internet...",
-      "readText": "Read post →",
-      "wordCount": 209,
-      "readingTime": 2,
-      "series": ""
-    },
-    {
-      "path": "blog/blog-digital-miracles.html",
-      "title": "Digital Miracles",
-      "date": "February 2024",
-      "tags": [
-        "Satire"
-      ],
-      "excerpt": "In conclusion, miracles are deceptively simple to perform, especially in a world of your creation. What you use this information for I am in no way responsible for. I also must forewarn you that your ...",
-      "readText": "Read post →",
-      "wordCount": 2170,
-      "readingTime": 11,
+      "wordCount": 940,
+      "readingTime": 5,
       "series": ""
     },
     {
@@ -142,23 +103,75 @@
       ],
       "excerpt": "In other words, it was a project exactly like any other AI assisted project: one where scripts could be generated and iterated in mere seconds, but one where bugs that humans never would have written ...",
       "readText": "Read post →",
-      "wordCount": 1827,
+      "wordCount": 1805,
       "readingTime": 10,
+      "series": ""
+    },
+    {
+      "path": "blog/whois-fancyboots.html",
+      "title": "Who is Doctor Fancyboots?",
+      "date": "January 2026",
+      "tags": [
+        "History and Trivia"
+      ],
+      "excerpt": "If you've been messing around on this website, you've probably wondered at some point who this Doctor Fancyboots guy who keeps showing up is. Here's the rundown.",
+      "readText": "Read post →",
+      "wordCount": 543,
+      "readingTime": 3,
+      "series": ""
+    },
+    {
+      "path": "blog/blog-internet-mole-day.html",
+      "title": "Internet Mole Day is Coming",
+      "date": "October 2025",
+      "tags": [
+        "Fun Facts"
+      ],
+      "excerpt": "After doing some random napkin maths, I came to a conclusion I found interesting and thought you all would appreciate. Through some intense googling, estimates for the size of all data on the internet...",
+      "readText": "Read post →",
+      "wordCount": 172,
+      "readingTime": 1,
+      "series": ""
+    },
+    {
+      "path": "blog/blog-digital-miracles.html",
+      "title": "Digital Miracles",
+      "date": "February 2024",
+      "tags": [
+        "Satire"
+      ],
+      "excerpt": "﻿DIGITAL MIRACLES - A Guide To Obtaining Faith in the Digital Age",
+      "readText": "Read post →",
+      "wordCount": 2125,
+      "readingTime": 11,
+      "series": ""
+    },
+    {
+      "path": "blog/blog-omega-doublesharp.html",
+      "title": "Ω𝄪",
+      "date": "November 2021",
+      "tags": [
+        "Satire"
+      ],
+      "excerpt": "Ω𝄪, or Ω## is a continual operator which iterates through all possible solutions to problems. There are three downsides to this approach of problem-solving. 1. It operates in O(2^∞) time. 2. It will e...",
+      "readText": "Read post →",
+      "wordCount": 689,
+      "readingTime": 4,
       "series": ""
     }
   ],
   "projects": [
     {
-      "path": "projects/project-grimoire-atziluth.html",
-      "title": "Grimoire Atziluth",
-      "date": "March 2026",
+      "path": "projects/project-tarot-major-arcana.html",
+      "title": "A System of the Tarot Major Arcana as Eschatological Archetypes",
+      "date": "August 2026",
       "tags": [
-        "Tools"
+        "Esoterica"
       ],
-      "excerpt": "An offline-first esoteric reference and divination app for Linux, Windows, and Android. Tarot, runes, astrology, Qabalah, spaced repetition study — no cloud, no account, no tracking.",
-      "readText": "View project →",
-      "wordCount": 350,
-      "readingTime": 2,
+      "excerpt": "A structural reading of the Tarot. This work establishes and defends a system wherein the traditional archetypes of the Major Arcana are interpreted and identified through Judaeo-Christian eschatologi...",
+      "readText": "Download →",
+      "wordCount": 538,
+      "readingTime": 3,
       "series": ""
     },
     {
@@ -168,10 +181,23 @@
       "tags": [
         "Tools"
       ],
-      "excerpt": "A mobile-first Progressive Web App for Riichi Mahjong. Hand analyzer with shanten, waits, and scoring. Game tracker for 3- and 4-player with EMA rules. Installable, works offline.",
+      "excerpt": "A mobile-first Progressive Web App for Riichi Mahjong players. Installable from the browser, works offline, no account required.",
       "readText": "Open app →",
-      "wordCount": 120,
+      "wordCount": 198,
       "readingTime": 1,
+      "series": ""
+    },
+    {
+      "path": "projects/project-grimoire-atziluth.html",
+      "title": "Grimoire Atziluth",
+      "date": "March 2026",
+      "tags": [
+        "Tools"
+      ],
+      "excerpt": "An offline-first esoteric reference and divination app for Linux, Windows, and Android. It combines an interactive reading journal, a comprehensive occult knowledge base, live astrological calculation...",
+      "readText": "View project →",
+      "wordCount": 455,
+      "readingTime": 3,
       "series": ""
     },
     {
@@ -183,8 +209,8 @@
       ],
       "excerpt": "Click to read more.",
       "readText": "Read story →",
-      "wordCount": 232,
-      "readingTime": 2,
+      "wordCount": 196,
+      "readingTime": 1,
       "series": ""
     },
     {
@@ -196,21 +222,8 @@
       ],
       "excerpt": "Click to read more.",
       "readText": "Read story →",
-      "wordCount": 37,
+      "wordCount": 2,
       "readingTime": 1,
-      "series": ""
-    },
-    {
-      "path": "projects/project-tarot-major-arcana.html",
-      "title": "A System of the Tarot Major Arcana as Eschatological Archetypes",
-      "date": "August 2026",
-      "tags": [
-        "Esoterica"
-      ],
-      "excerpt": "A structural reading of the Tarot. This work establishes and defends a system wherein the traditional archetypes of the Major Arcana are interpreted and identified through Judaeo-Christian eschatologi...",
-      "readText": "Download →",
-      "wordCount": 583,
-      "readingTime": 3,
       "series": ""
     }
   ]

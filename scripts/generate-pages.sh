@@ -71,8 +71,17 @@ extract_metadata() {
     # Extract title from <h1 class="story-title">
     temp_title=$(grep -oP '(?<=<h1 class="story-title">).*?(?=</h1>)' "$file" | head -1 | sed 's/<[^>]*>//g')
 
-    # Extract date from <span class="story-date">
-    temp_date=$(grep -oP '(?<=<span class="story-date">).*?(?=</span>)' "$file" | head -1)
+    # Extract date from <span class="story-date">. Some pages append extra
+    # display text after the date (e.g. "March 2026 · v1.0.0", "August 2026
+    # · 134 pages") - keep only the leading "Month YYYY" for sorting/ISO
+    # conversion downstream, falling back to the raw value for special
+    # cases like "Coming Soon" that don't match that shape.
+    local temp_date_raw
+    temp_date_raw=$(grep -oP '(?<=<span class="story-date">).*?(?=</span>)' "$file" | head -1)
+    temp_date=$(echo "$temp_date_raw" | grep -oP '^\S+ \d{4}')
+    if [ -z "$temp_date" ]; then
+        temp_date="$temp_date_raw"
+    fi
 
     # Extract all tags from <span class="card-tag"> (use TAB as separator)
     temp_tags=$(grep -oP '<span class="card-tag[^"]*">.*?</span>' "$file" | sed 's/<[^>]*>//g' | tr '\n' '\t')
@@ -80,12 +89,16 @@ extract_metadata() {
     # Extract series from <span class="story-series">
     temp_series=$(grep -oP '(?<=<span class="story-series">).*?(?=</span>)' "$file" | head -1 || echo "")
 
-    # Extract first substantial paragraph from story-body as excerpt
-    # Skip very short paragraphs and get the first one with at least 50 chars
-    # Clean it by removing line breaks, multiple spaces, and HTML tags
+    # Extract first substantial paragraph from story-body as excerpt.
+    # story-body may contain nested <div> markup (e.g. a download-row) and
+    # <p> tags that wrap across multiple lines, so flatten the body region
+    # to a single line first rather than grepping line-by-line.
+    local body_flat
+    body_flat=$(awk '/<div class="story-body">/{flag=1} flag{print} /<!-- Feedback CTA -->/{exit}' "$file" | tr '\n' ' ')
+
     temp_excerpt=""
     while IFS= read -r para; do
-        cleaned=$(echo "$para" | sed 's/<[^>]*>//g' | tr '\n' ' ' | sed 's/  */ /g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+        cleaned=$(echo "$para" | sed 's/<[^>]*>//g' | sed 's/  */ /g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
         if [ ${#cleaned} -ge 50 ]; then
             temp_excerpt=$(echo "$cleaned" | cut -c1-200)
             if [ ${#temp_excerpt} -ge 195 ]; then
@@ -93,20 +106,28 @@ extract_metadata() {
             fi
             break
         fi
-    done < <(grep -A 100 '<div class="story-body">' "$file" | grep -oP '(?<=<p>).*?(?=</p>)')
+    done < <(echo "$body_flat" | grep -oP '(?<=<p>).*?(?=</p>)')
 
     # If no excerpt found, use a placeholder
     if [ -z "$temp_excerpt" ]; then
         temp_excerpt="Click to read more."
     fi
 
-    # Determine read text based on file type
-    if echo "$file" | grep -qE "blog/|whois-"; then
-        temp_read_text="Read post →"
-    elif echo "$temp_tags" | grep -qi "poetry\|poem"; then
-        temp_read_text="Read poem →"
-    else
-        temp_read_text="Read story →"
+    # Determine read text: an optional <!-- read-text: Custom Label → -->
+    # comment anywhere in the file overrides the default (used by projects
+    # like Riichi Companion ("Open app →") or a downloadable publication
+    # ("Download →") that don't fit the generic "Read story"/"View project").
+    temp_read_text=$(grep -oP '(?<=<!-- read-text: ).*?(?= -->)' "$file" | head -1)
+    if [ -z "$temp_read_text" ]; then
+        if echo "$file" | grep -qE "blog/|whois-"; then
+            temp_read_text="Read post →"
+        elif echo "$file" | grep -qE "projects/"; then
+            temp_read_text="View project →"
+        elif echo "$temp_tags" | grep -qi "poetry\|poem"; then
+            temp_read_text="Read poem →"
+        else
+            temp_read_text="Read story →"
+        fi
     fi
 
     # Output as pipe-delimited string (using special delimiter sequence)
@@ -150,9 +171,11 @@ calculate_reading_time() {
         wpm=$(jq -r '.readingTime.wordsPerMinute // 200' config.json)
     fi
 
-    # Count words in story-body section
-    local word_count=$(grep -A 10000 '<div class="story-body">' "$file" | \
-                       grep -B 10000 '</div>' | head -n -1 | \
+    # Count words in story-body section. Bounded by the "Feedback CTA"
+    # comment (present in every content file, right after story-body closes)
+    # rather than the first "</div>", since story-body can contain its own
+    # nested divs (e.g. a download-row) that would otherwise truncate the count.
+    local word_count=$(awk '/<div class="story-body">/{flag=1} flag{print} /<!-- Feedback CTA -->/{exit}' "$file" | \
                        sed 's/<[^>]*>//g' | wc -w)
 
     # Calculate reading time (round up)
@@ -307,9 +330,14 @@ generate_page() {
     declare -a sorted_files
 
     for file in $pattern; do
+        # Skip chapter/sub-pages (e.g. project-kaguya-sub1.html) - these are
+        # linked from their landing page, not standalone manifest entries.
+        case "$file" in
+            *-sub[0-9]*.html) continue ;;
+        esac
         if [ -f "$file" ]; then
             metadata=$(extract_metadata "$file")
-            date=$(echo "$metadata" | cut -d'|' -f2)
+            date=$(echo "$metadata" | cut -d'|' -f4)
             sort_key=$(parse_date_for_sort "$date")
             files_data["$file"]="$metadata"
             sorted_files+=("${sort_key}|${file}")
@@ -455,7 +483,7 @@ PAGE_EOF
 # Generate each page
 generate_page "stories" "stories/story-*.html" "stories.html" "Stories" "The Fiction" "Short sci-fi fiction. Weird, funny, and occasionally coherent." "false"
 generate_page "blog" "blog/blog-*.html blog/whois-*.html" "blog.html" "Blog" "Opinions & Observations" "Satire, musings, and the occasional mathematical rambling." "true"
-generate_page "projects" "projects/project-*-landing.html" "projects.html" "Projects" "Downloadable Projects" "Other projects that you can download and use locally." "false"
+generate_page "projects" "projects/project-*.html" "projects.html" "Projects" "Downloadable Projects" "Other projects that you can download and use locally." "false"
 
 echo "  ✓ Generated content-manifest.json"
 echo "-------------------------------------------"

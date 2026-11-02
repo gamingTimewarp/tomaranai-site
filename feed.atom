@@ -4,7 +4,7 @@
   <link href="https://tomaranai.pro/ject.html" />
   <link href="https://tomaranai.pro/feed.atom" rel="self" />
   <id>https://tomaranai.pro/</id>
-  <updated>2026-08-08T08:52:02Z</updated>
+  <updated>2026-11-02T22:20:18Z</updated>
   <author>
     <name>@gamingTimewarp</name>
     <email>gamingTimewarp@tomaranai.pro</email>
@@ -22,14 +22,14 @@
     <link href="https://tomaranai.pro/blog/blog-omega-doublesharp.html" />
     <id>https://tomaranai.pro/blog/blog-omega-doublesharp.html</id>
     <updated>2021-11-01T00:00:00Z</updated>
-    <summary>Ω𝄪א Assembly has zero-byte opcodes, as Ω𝄪 only makes use of one operation. It also has only one register, which the output is automatically stored to, and so does not need memory addresses. The output...</summary>
+    <summary>Ω𝄪, or Ω## is a continual operator which iterates through all possible solutions to problems. There are three downsides to this approach of problem-solving. 1. It operates in O(2^∞) time. 2. It will e...</summary>
   </entry>
   <entry>
     <title>end.</title>
     <link href="https://tomaranai.pro/stories/story-end.html" />
     <id>https://tomaranai.pro/stories/story-end.html</id>
     <updated>2018-11-01T00:00:00Z</updated>
-    <summary>“Kid, you’ve got the power to end the world. Use it the best that you can. For all of us.”</summary>
+    <summary>It was a rainy day. Not so much a rainy day in terms of weather, although it had been sprinkling on and off for the past few hours. More of a rainy day in terms of emotion. The kind everybody has, but...</summary>
   </entry>
   <entry>
     <title>Spaghetti Eastern</title>
@@ -39,11 +39,18 @@
     <summary>My name is Doctor Fancyboots. If you&apos;ve heard of me, you probably know me as a field agent for the Bureau of Narrative Compliance in the capital city of Chin&apos;llyein. However, as a wizard, I am occasio...</summary>
   </entry>
   <entry>
+    <title>Riichi-ing New Heights with Claude Code</title>
+    <link href="https://tomaranai.pro/blog/blog-riichi.html" />
+    <id>https://tomaranai.pro/blog/blog-riichi.html</id>
+    <updated>2026-03-01T00:00:00Z</updated>
+    <summary>Combining the risk/reward element of poker, the hand-building and discarding strategy of rummy, with the tactile appeal and beautiful art found in games like hanafuda, it’s truly unique. Every tile ha...</summary>
+  </entry>
+  <entry>
     <title>The Predicament, Dicament, and Postdicament of Doctor Fancyboots</title>
     <link href="https://tomaranai.pro/stories/story-postdicament.html" />
     <id>https://tomaranai.pro/stories/story-postdicament.html</id>
     <updated>2024-03-01T00:00:00Z</updated>
-    <summary>Dr. Fancyboots had quite many problems. This was not his first predicament, nor his last. This streak of problems began when he was born-- Dr. Fancyboots, like most people, was of course born his whol...</summary>
+    <summary>“Good Riddance, Doctor Fancyboots!” cried out the clerk as Dr. Fancyboots left the mall. “Thank you! You as well!” the good doctor called out after him. Doctor Thomas Wayne Grimfellelthydorgurlenbotte...</summary>
   </entry>
   <entry>
     <title>Who is Doctor Fancyboots?</title>
@@ -71,14 +78,14 @@
     <link href="https://tomaranai.pro/blog/blog-digital-miracles.html" />
     <id>https://tomaranai.pro/blog/blog-digital-miracles.html</id>
     <updated>2024-02-01T00:00:00Z</updated>
-    <summary>In conclusion, miracles are deceptively simple to perform, especially in a world of your creation. What you use this information for I am in no way responsible for. I also must forewarn you that your ...</summary>
+    <summary>﻿DIGITAL MIRACLES - A Guide To Obtaining Faith in the Digital Age</summary>
   </entry>
   <entry>
     <title>A Field Trip to a Pond</title>
     <link href="https://tomaranai.pro/stories/story-pond-trip.html" />
     <id>https://tomaranai.pro/stories/story-pond-trip.html</id>
     <updated>2023-02-01T00:00:00Z</updated>
-    <summary>Had a crazy magical field trip of your own? I&apos;d love to hear.</summary>
+    <summary>﻿“Do you think it’ll turn into a prince if I kiss it?” queried Merry. “Even if I knew it would, I still wouldn’t kiss it,” responded Renko. “I wouldn’t give up my dignity for wealth.” The twins were o...</summary>
   </entry>
   <entry>
     <title>The Antedicament of Doctor Fancyboots</title>
